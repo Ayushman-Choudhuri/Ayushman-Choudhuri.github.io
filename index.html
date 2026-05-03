@@ -18,15 +18,19 @@
        ============================================================ -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow fade-in fade-in-1">Roboticist &amp; AI Researcher</p>
-      <h1 class="fade-in fade-in-2">Hi, I'm <span>Ayushman</span><br>Choudhuri.</h1>
-      <p class="hero-subtitle fade-in fade-in-3">
-        A curious roboticist exploring innovations in autonomous systems and AI-driven perception technologies.
-        Currently pursuing a Master's degree at RWTH Aachen University.
-      </p>
-      <div class="hero-ctas fade-in fade-in-4">
-        <a href="/about.html" class="btn btn-primary">About Me</a>
-        <a href="/projects.html" class="btn btn-secondary">View Projects</a>
+      <div class="hero-text">
+        <p class="hero-eyebrow fade-in fade-in-1">Robotics Engineer &amp; AI Researcher</p>
+        <h1 class="fade-in fade-in-2">Hi, I'm <span>Ayushman</span></h1>
+        <p class="hero-subtitle fade-in fade-in-3">
+          I like making robots see the world.
+        </p>
+        <div class="hero-ctas fade-in fade-in-4">
+          <a href="/about.html" class="btn btn-primary">About Me</a>
+          <a href="/projects.html" class="btn btn-secondary">View Projects</a>
+        </div>
+      </div>
+      <div class="hero-image fade-in fade-in-5">
+        <img src="/assets/images/profile.png" alt="Ayushman Choudhuri">
       </div>
     </div>
     <div class="hero-scroll">
@@ -103,7 +107,11 @@
     var grid = document.getElementById('featured-grid');
     if (grid) {
       grid.innerHTML = featured.map(function (p) {
+        var imgHTML = p.image
+          ? '<div class="project-card-img"><img src="' + p.image + '" alt="' + p.title + ' preview" loading="lazy"></div>'
+          : '<div class="project-card-img"><span class="project-card-img--placeholder">' + p.icon + '</span></div>';
         return '<a href="' + p.href + '" class="project-card">' +
+          imgHTML +
           '<div class="project-card-header">' +
             '<div class="project-card-icon">' + p.icon + '</div>' +
             '<span class="project-card-status ' + (p.status === 'active' ? 'status-active' : 'status-completed') + '">' +

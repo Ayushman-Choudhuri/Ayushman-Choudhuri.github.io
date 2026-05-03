@@ -1,5 +1,19 @@
+// image: path to a preview image or GIF in assets/images/projects/
+// Use .jpg, .png, or .gif — set to null to show the icon placeholder instead.
 window.PROJECTS = {
   recent: [
+    {
+      id: 'mcap2hdf5',
+      title: 'mcap2hdf5',
+      subtitle: 'Convert ROS2 MCAP sensor recordings into ML-ready HDF5 datasets',
+      description: 'CLI tool that inspects, configures, and converts ROS2 MCAP recordings — camera, LiDAR, and transform streams — into synchronized, machine learning-ready HDF5 datasets.',
+      tags: ['Python', 'ROS2', 'MCAP', 'HDF5', 'LiDAR', 'Data Engineering'],
+      date: '2026',
+      status: 'active',
+      icon: '📦',
+      image: '/assets/images/projects/mcap2hdf5.jpg',
+      href: '/projects/mcap2hdf5.html',
+    },
     {
       id: 'master-thesis',
       title: 'Explainable Transformer-based 3D Object Detection',
@@ -7,8 +21,9 @@ window.PROJECTS = {
       description: 'Improving the real-time explainability of transformer-based 3D object detection models on LiDAR point clouds while maintaining low-latency performance.',
       tags: ['Transformers', 'LiDAR', '3D Object Detection', 'XAI', 'PyTorch'],
       date: '2024 – 2025',
-      status: 'active',
+      status: 'completed',
       icon: '🎓',
+      image: '/assets/images/projects/master-thesis.jpg',
       href: '/projects/master-thesis.html',
     },
     {
@@ -20,6 +35,7 @@ window.PROJECTS = {
       date: '2024',
       status: 'completed',
       icon: '🌍',
+      image: '/assets/images/projects/terrawatch.jpg',
       href: '/projects/terrawatch.html',
     },
     {
@@ -31,6 +47,7 @@ window.PROJECTS = {
       date: '2023',
       status: 'completed',
       icon: '🤖',
+      image: '/assets/images/projects/sokrates.jpg',
       href: '/projects/sokrates.html',
     },
     {
@@ -42,6 +59,7 @@ window.PROJECTS = {
       date: '2022',
       status: 'completed',
       icon: '🔊',
+      image: '/assets/images/projects/audio-classifier.jpg',
       href: '/projects/audio-classifier.html',
     },
     {
@@ -53,6 +71,7 @@ window.PROJECTS = {
       date: '2022',
       status: 'completed',
       icon: '📷',
+      image: '/assets/images/projects/stereo-visual-odometry.jpg',
       href: '/projects/stereo-visual-odometry.html',
     },
     {
@@ -64,6 +83,7 @@ window.PROJECTS = {
       date: '2022',
       status: 'completed',
       icon: '🎯',
+      image: '/assets/images/projects/yolov5-deepsort.gif',
       href: '/projects/yolov5-deepsort.html',
     },
     {
@@ -75,6 +95,7 @@ window.PROJECTS = {
       date: '2021',
       status: 'completed',
       icon: '🗺️',
+      image: '/assets/images/projects/occupancy-grid.jpg',
       href: '/projects/occupancy-grid.html',
     },
     {
@@ -86,6 +107,7 @@ window.PROJECTS = {
       date: '2021',
       status: 'completed',
       icon: '📍',
+      image: '/assets/images/projects/amcl-localization.gif',
       href: '/projects/amcl-localization.html',
     },
   ],
@@ -99,6 +121,7 @@ window.PROJECTS = {
       date: '2019',
       status: 'completed',
       icon: '⚙️',
+      image: '/assets/images/projects/circle-manipulator.jpg',
       href: '/projects/circle-manipulator.html',
     },
     {
@@ -110,6 +133,7 @@ window.PROJECTS = {
       date: '2018',
       status: 'completed',
       icon: '🦷',
+      image: '/assets/images/projects/brusrol.jpg',
       href: '/projects/brusrol.html',
     },
     {
@@ -121,6 +145,7 @@ window.PROJECTS = {
       date: '2016',
       status: 'completed',
       icon: '🚀',
+      image: '/assets/images/projects/strange-matter.jpg',
       href: '/projects/strange-matter.html',
     },
     {
@@ -132,6 +157,7 @@ window.PROJECTS = {
       date: '2016',
       status: 'completed',
       icon: '🔧',
+      image: '/assets/images/projects/modulus-r.jpg',
       href: '/projects/modulus-r.html',
     },
     {
@@ -143,6 +169,7 @@ window.PROJECTS = {
       date: '2015',
       status: 'completed',
       icon: '🔩',
+      image: '/assets/images/projects/modulus-x.jpg',
       href: '/projects/modulus-x.html',
     },
     {
@@ -154,6 +181,7 @@ window.PROJECTS = {
       date: '2015 – 2016',
       status: 'completed',
       icon: '💨',
+      image: '/assets/images/projects/robocon-wind.jpg',
       href: '/projects/robocon-wind.html',
     },
     {
@@ -165,6 +193,7 @@ window.PROJECTS = {
       date: '2014 – 2015',
       status: 'completed',
       icon: '🏸',
+      image: '/assets/images/projects/robocon-badminton.jpg',
       href: '/projects/robocon-badminton.html',
     },
   ],

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>mcap2hdf5 | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'mcap2hdf5',
+      title: 'mcap2hdf5',
+      subtitle: 'Convert ROS2 MCAP sensor recordings into ML-ready HDF5 datasets',
+      category: 'recent',
+      status: 'active',
+      date: '2025',
+      github: 'https://github.com/Ayushman-Choudhuri/mcap2hdf5',
+      tags: ['Python', 'ROS2', 'MCAP', 'HDF5', 'LiDAR', 'Camera', 'Data Engineering', 'CLI'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>mcap2hdf5 is a command-line tool for converting ROS2 MCAP sensor recordings into synchronized, machine learning-ready HDF5 datasets. It bridges the gap between raw robotics data collection and the structured formats required by ML training pipelines — removing the need for custom one-off conversion scripts for every new dataset.</p>'
+        },
+        {
+          heading: 'Motivation',
+          content: '<p>ROS2 MCAP recordings are the standard output of sensor rigs in autonomous driving and robotics research, but they are not directly consumable by ML frameworks. Extracting synchronized, aligned multi-modal data from MCAP files typically requires significant boilerplate. mcap2hdf5 automates this pipeline with a configurable, reusable CLI workflow.</p>'
+        },
+        {
+          heading: 'Workflow',
+          content: '<p>The tool exposes three commands that cover the full conversion pipeline:</p><ul><li><strong>inspect:</strong> Analyze an MCAP file — view available topics, auto-detect sensor modalities, and summarize recording metadata</li><li><strong>init:</strong> Auto-generate a YAML job configuration file from an MCAP recording, which can then be reviewed and customized before conversion</li><li><strong>convert:</strong> Execute the conversion, producing a synchronized HDF5 dataset with all selected sensor streams aligned to a common timestamp axis</li></ul>'
+        },
+        {
+          heading: 'Supported Modalities',
+          content: '<p>The current v0.1.0 pre-release supports:</p><ul><li>Camera (image topics)</li><li>LiDAR (point cloud topics)</li><li>Transform (TF/TF2 streams)</li></ul><p>Future releases will add IMU, Radar, GPS, and odometry data. A PyPI package release is planned for the stable v0.1.0.</p>'
+        },
+        {
+          heading: 'Installation',
+          content: '<p>Install directly from GitHub:</p><pre style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;font-size:0.85rem;overflow-x:auto;margin-top:8px"><code>pip install git+https://github.com/Ayushman-Choudhuri/mcap2hdf5.git</code></pre><p style="margin-top:12px">Requires Python 3.10 or higher.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>
