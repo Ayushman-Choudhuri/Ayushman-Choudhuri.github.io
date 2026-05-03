@@ -15,7 +15,7 @@
   }
 
   var navHTML = '<nav class="nav"><div class="nav-inner">' +
-    '<a href="/" class="nav-logo">AC<span>.</span></a>' +
+    '<a href="/" class="nav-logo"><img src="/assets/images/logo.png" alt="Ayushman Choudhuri" class="nav-logo-img"></a>' +
     '<button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">' +
     '<span></span><span></span><span></span></button>' +
     '<ul class="nav-links" id="nav-links">' +
