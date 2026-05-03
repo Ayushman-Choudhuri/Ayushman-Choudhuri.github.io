@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Sokrates | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'sokrates',
+      title: 'Sokrates',
+      subtitle: 'AI Ideation Assistant for the Automotive Industry',
+      category: 'recent',
+      status: 'completed',
+      date: 'April – May 2023',
+      event: 'TUM AI Makeathon 2023',
+      github: 'https://github.com/Ayushman-Choudhuri/AI-Ideation-Assistant/tree/main',
+      tags: ['Conversational AI', 'LLM', 'Python', 'NLP', 'Automotive'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>Sokrates is a conversational AI ideation assistant built to democratize AI access for small and medium enterprises (SMEs) in the automotive sector. Developed during the TUM AI Makeathon (April 28 – May 1, 2023), the prototype demonstrates how a Socratic dialogue-based interface can help non-technical users explore AI use cases relevant to their business.</p>'
+        },
+        {
+          heading: 'Problem',
+          content: '<p>Automotive SMEs often recognize the potential of AI but lack the in-house expertise to identify which problems AI can realistically solve and where to start. Generic AI consultants are expensive and often disconnected from the specifics of the automotive supply chain. Sokrates was designed to fill this gap by acting as an always-available, guided ideation partner.</p>'
+        },
+        {
+          heading: 'Approach',
+          content: '<p>The system uses a large language model with a carefully structured system prompt that embodies the Socratic method — asking targeted questions to help users articulate their problems, then steering the conversation toward concrete, feasible AI applications. The automotive domain knowledge is embedded in the prompt rather than a custom fine-tune, keeping the system lightweight and updatable.</p><ul><li>Domain-grounded prompting for automotive manufacturing and supply chain contexts</li><li>Structured dialogue flow: problem identification → feasibility check → solution sketch</li><li>Plain-language output designed for non-technical stakeholders</li></ul>'
+        },
+        {
+          heading: 'Outcome',
+          content: '<p>The prototype was built and demonstrated within 72 hours. It was well received by judges for its practical focus on making AI accessible to industry, rather than showcasing AI for its own sake.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

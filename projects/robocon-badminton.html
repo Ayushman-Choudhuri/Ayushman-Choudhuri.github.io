@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Robocon 2015 – Badminton Robots | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'robocon-badminton',
+      title: 'Badminton Robots — ABU Robocon 2015',
+      subtitle: 'Holonomic badminton-playing robots with pneumatic shot actuation',
+      category: 'legacy',
+      status: 'completed',
+      date: '2014 – 2015',
+      event: 'ABU Robocon 2015, Pune, India',
+      team: 'Team Robomanipal, MIT Manipal',
+      tags: ['Robotics', 'Pneumatics', 'Holonomic Drive', 'ABU Robocon', 'MIT Manipal', 'Embedded Systems'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>ABU Robocon 2015, hosted in Pune, India, challenged teams to build badminton-playing robots. Team Robomanipal at MIT Manipal developed autonomous holonomic-drive robots capable of navigating the arena in any direction and executing pneumatically actuated shots to return a shuttlecock over a net.</p>'
+        },
+        {
+          heading: 'Mechanical Design',
+          content: '<p>Two key mechanical challenges defined the design:</p><ul><li><strong>Holonomic drive:</strong> Standard differential-drive robots cannot strafe laterally, which is critical for court positioning. The robots used a holonomic wheel configuration (mecanum or omnidirectional wheels) enabling full 2D mobility — any combination of translation and rotation in the arena plane.</li><li><strong>Pneumatic shot mechanism:</strong> A rapid-actuation pneumatic system was designed to strike the shuttlecock with consistent force and direction. Solenoid valves controlled shot timing, with pressure regulation ensuring repeatable trajectory.</li></ul>'
+        },
+        {
+          heading: 'Autonomy & Control',
+          content: '<p>Both robots operated autonomously during matches, using onboard sensors for position estimation and court awareness. The control architecture handled real-time trajectory planning for the holonomic base and shot timing coordination, requiring tight integration between the mechanical and electronics subteams.</p>'
+        },
+        {
+          heading: 'Competition',
+          content: '<p>ABU Robocon is one of Asia\'s most prestigious robotics competitions, drawing university teams from across the continent. Competing as part of Team Robomanipal provided intensive experience in designing, building, and iterating on complex mechatronics systems under strict deadlines and competitive pressure.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

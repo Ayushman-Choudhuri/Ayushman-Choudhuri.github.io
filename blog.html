@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog by Ayushman Choudhuri — thoughts on robotics, AI, and research.">
+  <title>Blog | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <div class="page-content">
+    <div class="page-hero">
+      <div class="container">
+        <p class="section-eyebrow">Writing</p>
+        <h1>Blog</h1>
+        <p class="page-hero-subtitle">
+          Thoughts on robotics, AI research, perception systems, and the occasional reflection on
+          building things that matter.
+        </p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="blog-grid" id="blog-grid"></div>
+      </div>
+    </section>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/components.js"></script>
+  <script src="/data/blog.js"></script>
+  <script>
+    var posts = window.BLOG_POSTS || [];
+    var grid  = document.getElementById('blog-grid');
+
+    if (posts.length === 0) {
+      grid.innerHTML =
+        '<div class="blog-empty">' +
+          '<h3>No posts yet</h3>' +
+          '<p>Posts will appear here once published. Add entries to <code>data/blog.js</code> and create the corresponding file in <code>blog/</code>.</p>' +
+        '</div>';
+    } else {
+      grid.innerHTML = posts.map(function (p) {
+        return '<a href="' + p.href + '" class="blog-card">' +
+          '<div class="blog-card-meta">' +
+            '<span>' + p.date + '</span>' +
+            '<span>&middot;</span>' +
+            '<span>' + p.readTime + '</span>' +
+          '</div>' +
+          '<h3>' + p.title + '</h3>' +
+          '<p>' + p.excerpt + '</p>' +
+          '<div class="tags">' +
+            (p.tags || []).map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') +
+          '</div>' +
+        '</a>';
+      }).join('');
+    }
+  </script>
+</body>
+</html>

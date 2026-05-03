@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>TerraWatch | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'terrawatch',
+      title: 'TerraWatch',
+      subtitle: 'Multimodal AI for Deforestation Detection',
+      category: 'recent',
+      status: 'completed',
+      date: '2024',
+      event: 'TUM AI Hackathon 2024',
+      github: 'https://github.com/Ayushman-Choudhuri/TerraWatch/tree/develop',
+      tags: ['Computer Vision', 'Multimodal LLM', 'Satellite Imagery', 'Python', 'Remote Sensing'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>TerraWatch is a multimodal AI system for detecting deforestation from satellite imagery, built as a 48-hour prototype at the TUM AI Hackathon 2024. It combines computer vision with large language models to not only detect deforested regions but also predict likely causes and environmental consequences.</p>'
+        },
+        {
+          heading: 'Motivation',
+          content: '<p>Deforestation is one of the leading drivers of biodiversity loss and carbon emissions. Existing satellite-monitoring tools can flag changes in forest cover, but they provide little context about <em>why</em> the change occurred or what the downstream ecological impact might be. TerraWatch bridges that gap by pairing visual detection with language-model reasoning.</p>'
+        },
+        {
+          heading: 'Technical Approach',
+          content: '<p>The system works in two stages:</p><ul><li><strong>Vision stage:</strong> A computer vision model processes multispectral satellite imagery to segment and quantify areas of vegetation loss. Change detection between temporal image pairs highlights newly deforested regions.</li><li><strong>Language stage:</strong> A multimodal LLM receives the visual evidence alongside geographic and contextual metadata. It reasons about probable causes (agriculture, logging, wildfires) and generates a natural-language report on predicted environmental effects.</li></ul>'
+        },
+        {
+          heading: 'Results',
+          content: '<p>The prototype successfully demonstrated end-to-end deforestation detection and impact reporting within the 48-hour hackathon window. The system was recognized by the hackathon judges for its practical framing of a real-world environmental challenge.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Stereo Visual Odometry | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'stereo-visual-odometry',
+      title: 'Stereo Visual Odometry',
+      subtitle: 'Ego-motion estimation using the KITTI benchmark',
+      category: 'recent',
+      status: 'completed',
+      date: '2022',
+      tags: ['Computer Vision', 'KITTI', 'Stereo Vision', 'Python', 'OpenCV', 'NumPy'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>This project implements a stereo visual odometry (VO) pipeline to estimate the ego-motion of an autonomous vehicle using stereo camera data from the KITTI benchmark dataset. Visual odometry is a fundamental component in autonomous driving, providing a lightweight alternative to GPS-based localization when satellite signals are unavailable or unreliable.</p>'
+        },
+        {
+          heading: 'Pipeline',
+          content: '<p>The VO pipeline follows a classical approach:</p><ul><li><strong>Stereo rectification:</strong> Aligning left and right image pairs using known camera calibration parameters</li><li><strong>Disparity estimation:</strong> Computing per-pixel depth using semi-global block matching (SGBM)</li><li><strong>3D point reconstruction:</strong> Lifting 2D feature correspondences to 3D via the disparity map and camera model</li><li><strong>Feature detection and matching:</strong> FAST/ORB keypoints tracked across consecutive frames</li><li><strong>Motion estimation:</strong> Solving the 3D-3D PnP problem to recover rotation and translation between frames</li><li><strong>Pose integration:</strong> Accumulating frame-to-frame transforms to produce a full trajectory estimate</li></ul>'
+        },
+        {
+          heading: 'Evaluation',
+          content: '<p>The pipeline was evaluated on several KITTI odometry sequences. Trajectory error was computed using the standard KITTI evaluation toolkit, comparing estimated paths against ground-truth GPS/IMU trajectories. The implementation achieves competitive results relative to classical VO baselines on the benchmark.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

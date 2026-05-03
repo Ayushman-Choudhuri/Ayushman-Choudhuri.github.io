@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Multi-Object Tracking | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'yolov5-deepsort',
+      title: 'Multi-Object Tracking with YOLOv5 + DeepSORT',
+      subtitle: 'Real-time object detection and tracking in video streams',
+      category: 'recent',
+      status: 'completed',
+      date: '2022',
+      github: 'https://github.com/Ayushman-Choudhuri/yolov5-deepsort',
+      tags: ['YOLOv5', 'DeepSORT', 'PyTorch', 'Python', 'Computer Vision', 'Object Tracking'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>This project implements a real-time multi-object tracking (MOT) system by combining YOLOv5 for per-frame object detection with DeepSORT for maintaining persistent identity tracks across frames in video streams. The result is a robust system capable of tracking multiple objects simultaneously even through occlusions and re-entries.</p>'
+        },
+        {
+          heading: 'Architecture',
+          content: '<p>The system follows the standard tracking-by-detection paradigm:</p><ul><li><strong>Detection:</strong> YOLOv5 runs inference on each frame, producing bounding boxes, class labels, and confidence scores</li><li><strong>Feature extraction:</strong> A lightweight re-identification (ReID) network computes appearance embeddings for each detected object</li><li><strong>Data association:</strong> DeepSORT combines Kalman filter motion predictions with appearance embeddings via the Hungarian algorithm to assign detections to existing tracks</li><li><strong>Track management:</strong> Tracks are created, maintained, and deleted based on age and detection confidence thresholds</li></ul>'
+        },
+        {
+          heading: 'Key Features',
+          content: '<ul><li>Handles multiple object classes simultaneously (pedestrians, vehicles, cyclists)</li><li>Robust to short-term occlusions through Kalman filter prediction</li><li>Configurable confidence and IoU thresholds</li><li>Annotated video output with track IDs and bounding boxes</li></ul>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

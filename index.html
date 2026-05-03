@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ayushman Choudhuri — Roboticist specializing in autonomous systems and AI-driven perception technologies.">
+  <title>Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow fade-in fade-in-1">Roboticist &amp; AI Researcher</p>
+      <h1 class="fade-in fade-in-2">Hi, I'm <span>Ayushman</span><br>Choudhuri.</h1>
+      <p class="hero-subtitle fade-in fade-in-3">
+        A curious roboticist exploring innovations in autonomous systems and AI-driven perception technologies.
+        Currently pursuing a Master's degree at RWTH Aachen University.
+      </p>
+      <div class="hero-ctas fade-in fade-in-4">
+        <a href="/about.html" class="btn btn-primary">About Me</a>
+        <a href="/projects.html" class="btn btn-secondary">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      scroll
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURED PROJECTS
+       ============================================================ -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Selected Work</p>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-desc">A selection of recent projects spanning AI perception, autonomous systems, and robotics.</p>
+      </div>
+      <div class="projects-grid" id="featured-grid"></div>
+      <div style="margin-top:40px;text-align:center">
+        <a href="/projects.html" class="btn btn-secondary">View All Projects &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       QUICK ABOUT
+       ============================================================ -->
+  <section>
+    <div class="container">
+      <div class="two-col-skewed">
+        <div>
+          <p class="section-eyebrow">About</p>
+          <h2 class="section-title">Specialized<br>Generalist</h2>
+          <p style="margin:16px 0 24px;line-height:1.75;">
+            I'm a robotics engineer with deep expertise in perception and a breadth that spans the full hardware-software stack.
+            I thrive in interdisciplinary collaborations and seek projects that have a real impact on society and industry.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="/about.html" class="btn btn-secondary">Learn More</a>
+            <a href="mailto:ayushc205@gmail.com" class="btn btn-secondary">Get in Touch</a>
+          </div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-number">4+</div>
+            <div class="stat-label">Years in Robotics &amp; AI</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3×</div>
+            <div class="stat-label">Hackathon Awards</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Companies Co-founded</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/components.js"></script>
+  <script src="/data/projects.js"></script>
+  <script>
+    var featured = window.PROJECTS.recent.slice(0, 3);
+    var grid = document.getElementById('featured-grid');
+    if (grid) {
+      grid.innerHTML = featured.map(function (p) {
+        return '<a href="' + p.href + '" class="project-card">' +
+          '<div class="project-card-header">' +
+            '<div class="project-card-icon">' + p.icon + '</div>' +
+            '<span class="project-card-status ' + (p.status === 'active' ? 'status-active' : 'status-completed') + '">' +
+              (p.status === 'active' ? 'In Progress' : 'Completed') +
+            '</span>' +
+          '</div>' +
+          '<h3>' + p.title + '</h3>' +
+          '<p>' + p.description + '</p>' +
+          '<div class="tags">' +
+            p.tags.slice(0, 3).map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') +
+          '</div>' +
+          '<div class="project-card-footer">' +
+            '<span class="project-card-date">' + p.date + '</span>' +
+            '<span class="project-card-link">View &rarr;</span>' +
+          '</div>' +
+        '</a>';
+      }).join('');
+    }
+  </script>
+</body>
+</html>

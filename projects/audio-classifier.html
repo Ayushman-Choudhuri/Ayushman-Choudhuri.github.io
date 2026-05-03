@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Engine Defect Classifier | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'audio-classifier',
+      title: 'Transformer-based Engine Defect Classifier',
+      subtitle: 'Audio classification for industrial fault detection',
+      category: 'recent',
+      status: 'completed',
+      date: '2022',
+      event: 'Fraunhofer Hackathon 2022',
+      award: '3rd Place',
+      tags: ['Transformers', 'Audio Classification', 'PyTorch', 'Signal Processing', 'Industrial AI'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>This project developed a transformer-based audio classification system for detecting engine defects from acoustic signals, built at the Fraunhofer Hackathon in 2022. The system achieved 3rd place in the competition, demonstrating that attention-based architectures originally developed for NLP and vision can be successfully applied to industrial audio analysis.</p>'
+        },
+        {
+          heading: 'Problem',
+          content: '<p>Early detection of engine defects through acoustic monitoring can prevent costly failures in industrial and automotive applications. Traditional signal processing methods require hand-crafted features, while this project explored whether modern transformer architectures could learn relevant acoustic patterns directly from raw or lightly preprocessed audio.</p>'
+        },
+        {
+          heading: 'Technical Approach',
+          content: '<p>Audio signals were converted to mel-spectrograms, which were then treated as 2D images for classification. A transformer-based architecture was used to capture both local and global patterns in the frequency-time representation:</p><ul><li>Mel-spectrogram feature extraction from raw audio</li><li>Patch-based tokenization of the spectrogram (inspired by Vision Transformers)</li><li>Multi-head self-attention for capturing fault-specific frequency patterns</li><li>Fine-tuned on the hackathon-provided labeled dataset of defective vs. healthy engine sounds</li></ul>'
+        },
+        {
+          heading: 'Results',
+          content: '<p>The model achieved competitive classification accuracy within the hackathon timeframe, earning 3rd place. The project demonstrated that transformer architectures transfer effectively to audio-based industrial inspection tasks, opening potential for broader applications in predictive maintenance.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

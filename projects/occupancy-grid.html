@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Occupancy Grid & Octomap | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'occupancy-grid',
+      title: '2D Occupancy Grid & 3D Octomap',
+      subtitle: 'Environment mapping using ROS and Gazebo',
+      category: 'recent',
+      status: 'completed',
+      date: '2021',
+      tags: ['ROS', 'Gazebo', 'RTAB-Map', 'C++', 'Python', 'Robotics', 'SLAM'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>This project implements robot environment mapping using the RTAB-Map (Real-Time Appearance-Based Mapping) package in ROS, producing both a 2D occupancy grid for navigation planning and a 3D Octomap for volumetric environment representation. The robot was simulated in Gazebo with a depth camera and laser scanner.</p>'
+        },
+        {
+          heading: 'Approach',
+          content: '<p>RTAB-Map is a graph-based SLAM approach that builds a consistent map by detecting loop closures through visual appearance matching. The setup:</p><ul><li><strong>Sensor setup:</strong> RGB-D camera and 2D laser scan in Gazebo simulation</li><li><strong>RTAB-Map:</strong> Handles visual odometry, loop closure detection, and graph optimization</li><li><strong>2D output:</strong> Projected occupancy grid for use with the ROS navigation stack</li><li><strong>3D output:</strong> Octomap representation for collision checking and 3D path planning</li></ul>'
+        },
+        {
+          heading: 'Results',
+          content: '<p>The robot successfully built consistent 2D and 3D maps of simulated indoor environments, including accurate loop closure detection in revisited areas. The generated occupancy grid was compatible with the ROS move_base navigation stack for autonomous path planning.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

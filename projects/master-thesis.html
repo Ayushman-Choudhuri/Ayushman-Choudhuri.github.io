@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Master Thesis | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'master-thesis',
+      title: 'Explainable Transformer-based 3D Object Detection',
+      subtitle: 'Real-time XAI for LiDAR point cloud models in autonomous driving',
+      category: 'recent',
+      status: 'active',
+      date: '2024 – 2025',
+      institution: 'RWTH Aachen University',
+      advisor: 'Till Beemelmans, M.Sc.',
+      tags: ['Transformers', 'LiDAR', '3D Object Detection', 'XAI', 'Autonomous Driving', 'PyTorch', 'Python'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>This master\'s thesis, conducted at the Institut für Kraftfahrzeuge (ika) at RWTH Aachen University, addresses a critical gap in modern autonomous driving systems: while transformer-based models have achieved state-of-the-art performance in 3D object detection from LiDAR point clouds, their internal decision-making remains opaque — a major barrier to deployment in safety-critical systems.</p><p>The project focuses on developing explainability methods that can run in real time alongside the detection pipeline, without imposing prohibitive computational overhead.</p>'
+        },
+        {
+          heading: 'Problem Statement',
+          content: '<p>Transformer architectures such as DETR3D and BEVFormer have revolutionized 3D perception in autonomous driving. However, existing XAI techniques face two fundamental limitations:</p><ul><li><strong>Computational overhead:</strong> Most XAI methods (e.g., SHAP, gradient-based saliency) require multiple forward passes, making them unsuitable for real-time inference.</li><li><strong>3D incompatibility:</strong> Existing methods were largely designed for 2D image classification and do not translate naturally to the irregular, sparse structure of LiDAR point clouds.</li></ul><p>This thesis addresses both limitations simultaneously.</p>'
+        },
+        {
+          heading: 'Technical Approach',
+          content: '<p>The research develops XAI techniques specifically designed for transformer-based 3D detection architectures, focusing on:</p><ul><li>Attention-based saliency methods that leverage the transformer\'s built-in attention maps without extra forward passes</li><li>Efficient approximation strategies enabling single-pass explainability</li><li>Point cloud-native visualization tools that project explanations back into 3D space</li><li>Evaluation frameworks measuring both explanation quality and computational cost</li></ul>'
+        },
+        {
+          heading: 'Significance',
+          content: '<p>Explainability is not merely an academic concern in autonomous driving — it is a prerequisite for regulatory compliance, debugging model failures, and building public trust in autonomous systems. This work contributes toward making transformer-based perception models not just accurate, but interpretable and auditable.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

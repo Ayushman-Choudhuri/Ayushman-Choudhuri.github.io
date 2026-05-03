@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>MODULUS R | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'modulus-r',
+      title: 'MODULUS R',
+      subtitle: 'Robotic milling machine for large GFRP enclosures',
+      category: 'legacy',
+      status: 'completed',
+      date: '2016',
+      tags: ['CNC', 'Gantry Systems', 'Mechanical Design', 'GFRP', 'CAD', 'Manufacturing'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>MODULUS R is a 3-axis gantry-based robotic milling machine designed specifically for machining large Glass Fiber Reinforced Polymer (GFRP) enclosures. The system accommodates workpieces up to 1.2 m in height and is rated to IP65 for operation in dusty industrial environments — a critical requirement when cutting GFRP, which produces fine glass fiber particulates.</p>'
+        },
+        {
+          heading: 'Design Challenges',
+          content: '<p>Machining large GFRP components presents several engineering challenges:</p><ul><li><strong>Workpiece size:</strong> Standard CNC machines cannot accommodate enclosures in the 1–1.5 m range; a custom gantry architecture was required</li><li><strong>Dust management:</strong> GFRP milling generates abrasive glass fiber dust that damages machine components — the IP65 enclosure design protects all electronics and linear guides</li><li><strong>Material properties:</strong> GFRP is anisotropic and delamination-prone; toolpaths and feed rates were optimized for clean cuts without fiber pull-out</li><li><strong>Structural stiffness:</strong> The large gantry span demanded careful structural analysis to maintain cutting accuracy across the full working volume</li></ul>'
+        },
+        {
+          heading: 'Outcome',
+          content: '<p>The system demonstrated successful end-to-end milling of large GFRP enclosure panels, meeting dimensional tolerances required for the target application. The IP65-rated design validated the approach for deployment in production environments.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

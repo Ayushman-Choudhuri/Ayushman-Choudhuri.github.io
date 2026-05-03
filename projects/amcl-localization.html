@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>AMCL Localization | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'amcl-localization',
+      title: 'Robot Localization with AMCL',
+      subtitle: 'Adaptive Monte Carlo Localization for mobile robots',
+      category: 'recent',
+      status: 'completed',
+      date: '2021',
+      tags: ['ROS', 'AMCL', 'RViz', 'Gazebo', 'Python', 'Robotics', 'Localization'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>This project implements mobile robot localization using the Adaptive Monte Carlo Localization (AMCL) algorithm within the ROS ecosystem. AMCL is a probabilistic localization method that maintains a particle filter to estimate the robot\'s pose within a known map, adapting the number of particles based on localization uncertainty.</p>'
+        },
+        {
+          heading: 'Algorithm',
+          content: '<p>AMCL estimates the robot\'s 2D pose (x, y, heading) using a particle filter:</p><ul><li><strong>Particle filter:</strong> A set of weighted pose hypotheses represents the belief distribution over robot position</li><li><strong>Motion model:</strong> Particles are propagated forward using odometry data with added noise</li><li><strong>Sensor model:</strong> Particle weights are updated using laser scan likelihood against the known map</li><li><strong>Resampling:</strong> Particles are resampled proportional to their weights; particle count is adapted based on KLD-sampling to match the current uncertainty</li></ul>'
+        },
+        {
+          heading: 'Setup & Results',
+          content: '<p>The project was implemented and tested in Gazebo with a differential-drive robot equipped with a 2D laser scanner. RViz was used to visualize the particle cloud and estimated pose in real time. The robot successfully localized within a pre-built occupancy grid map and maintained accurate localization through extended navigation runs.</p>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

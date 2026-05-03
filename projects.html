@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Ayushman Choudhuri — AI perception, autonomous systems, and robotics.">
+  <title>Projects | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <div class="page-content">
+    <div class="page-hero">
+      <div class="container">
+        <p class="section-eyebrow">Work</p>
+        <h1>Projects</h1>
+        <p class="page-hero-subtitle">
+          A collection of projects spanning AI-driven perception, autonomous systems, and hardware engineering —
+          from hackathon prototypes to research theses.
+        </p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="projects-tabs">
+          <button class="projects-tab active" data-tab="recent">Recent Projects</button>
+          <button class="projects-tab" data-tab="legacy">Legacy Projects</button>
+        </div>
+        <div class="tab-panel active" id="tab-recent">
+          <div class="projects-grid" id="recent-grid"></div>
+        </div>
+        <div class="tab-panel" id="tab-legacy">
+          <div class="projects-grid" id="legacy-grid"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="/js/components.js"></script>
+  <script src="/data/projects.js"></script>
+  <script>
+    function renderCard(p) {
+      return '<a href="' + p.href + '" class="project-card">' +
+        '<div class="project-card-header">' +
+          '<div class="project-card-icon">' + p.icon + '</div>' +
+          '<span class="project-card-status ' + (p.status === 'active' ? 'status-active' : 'status-completed') + '">' +
+            (p.status === 'active' ? 'In Progress' : 'Completed') +
+          '</span>' +
+        '</div>' +
+        '<h3>' + p.title + '</h3>' +
+        '<p>' + p.description + '</p>' +
+        '<div class="tags">' +
+          p.tags.slice(0, 4).map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') +
+        '</div>' +
+        '<div class="project-card-footer">' +
+          '<span class="project-card-date">' + p.date + '</span>' +
+          '<span class="project-card-link">View &rarr;</span>' +
+        '</div>' +
+      '</a>';
+    }
+
+    document.getElementById('recent-grid').innerHTML =
+      window.PROJECTS.recent.map(renderCard).join('');
+    document.getElementById('legacy-grid').innerHTML =
+      window.PROJECTS.legacy.map(renderCard).join('');
+
+    document.querySelectorAll('.projects-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.projects-tab').forEach(function (t) { t.classList.remove('active'); });
+        document.querySelectorAll('.tab-panel').forEach(function (p) { p.classList.remove('active'); });
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

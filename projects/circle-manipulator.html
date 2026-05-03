@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>CIRCLE Manipulator | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'circle-manipulator',
+      title: 'CIRCLE: Open-source Parallel Manipulator',
+      subtitle: 'A parallel robot designed as a stabilization platform',
+      category: 'legacy',
+      status: 'completed',
+      date: '2019',
+      tags: ['Robotics', 'Parallel Manipulator', 'Mechanical Design', 'CAD', 'Embedded Systems', 'Open Source'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: '<p>CIRCLE is an open-source parallel manipulator robot designed primarily as a stabilization platform. Unlike serial robot arms, parallel manipulators distribute loads across multiple kinematic chains, enabling higher stiffness, accuracy, and payload capacity for a given actuator size. CIRCLE was designed to be modular and integrable with robotic arms for precision end-effector stabilization tasks.</p>'
+        },
+        {
+          heading: 'Design',
+          content: '<p>The mechanism is based on a Stewart platform-inspired topology with:</p><ul><li>Multiple actuated legs connecting a fixed base to a moving platform</li><li>High stiffness due to the closed-loop kinematic structure</li><li>Modular attachment interface for mounting different end-effectors or robotic arms</li><li>Custom-designed motor mounts and structural components for ease of fabrication and assembly</li></ul><p>All design files are open-source to encourage adaptation and improvement by the community.</p>'
+        },
+        {
+          heading: 'Applications',
+          content: '<p>The platform was designed with versatile applications in mind:</p><ul><li>Camera stabilization for smooth imaging under vibration</li><li>End-effector stabilization for robotic arms performing precision tasks</li><li>Research platform for studying parallel kinematics and control</li></ul>'
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>
