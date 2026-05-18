@@ -19,7 +19,7 @@
         <p class="section-eyebrow">Writing</p>
         <h1>Blog</h1>
         <p class="page-hero-subtitle">
-          Thoughts on robotics, AI research, perception systems, and the occasional reflection on
+          Thoughts on robotics, AI research, perception systems, and the reflections on
           building things that matter.
         </p>
       </div>
@@ -43,8 +43,7 @@
     if (posts.length === 0) {
       grid.innerHTML =
         '<div class="blog-empty">' +
-          '<h3>No posts yet</h3>' +
-          '<p>Posts will appear here once published. Add entries to <code>data/blog.js</code> and create the corresponding file in <code>blog/</code>.</p>' +
+          '<h3>Coming soon...</h3>' +
         '</div>';
     } else {
       grid.innerHTML = posts.map(function (p) {
