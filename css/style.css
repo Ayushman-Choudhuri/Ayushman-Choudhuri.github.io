@@ -385,8 +385,24 @@ section { padding: 80px 0; }
    RESUME PAGE
    ============================================================ */
 .resume-header { padding: 100px 0 56px; border-bottom: 1px solid var(--border); }
-.resume-layout { display: grid; grid-template-columns: 1fr 260px; gap: 56px; padding: 60px 0; align-items: start; }
-@media (max-width: 768px) { .resume-layout { grid-template-columns: 1fr; } }
+.resume-layout { padding: 60px 0 0; }
+.resume-tech-section {
+  border-top: 1px solid var(--border);
+  padding: 40px 0 60px;
+}
+.resume-tech-title {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--accent);
+  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.resume-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+}
+@media (max-width: 900px) { .resume-tech-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .resume-tech-grid { grid-template-columns: 1fr; } }
 .resume-section { margin-bottom: 44px; }
 .resume-section-title {
   font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
@@ -407,6 +423,49 @@ section { padding: 80px 0; }
 .resume-skill-list { display: flex; flex-direction: column; gap: 6px; }
 .resume-skill-list li { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
 .resume-skill-list li::before { content: ''; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+/* ============================================================
+   CAREER PROGRESSION GROUP (resume page)
+   ============================================================ */
+.career-group { margin-bottom: 28px; }
+.career-group-body {
+  padding: 0;
+  position: relative;
+}
+.career-group-body::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 20px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent) 0%, rgba(34, 211, 238, 0.12) 100%);
+}
+.career-group-body .resume-entry {
+  position: relative;
+  border-bottom-color: rgba(34, 211, 238, 0.08);
+}
+.career-group-body .resume-entry::before {
+  content: '';
+  position: absolute;
+  left: -19px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+}
+.career-group-body .resume-entry:first-child::before {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+  width: 12px;
+  height: 12px;
+  left: -20px;
+  top: 9px;
+}
+.career-group-body .resume-entry:last-child { padding-bottom: 0; }
 
 /* ============================================================
    STAT CARDS (home page)

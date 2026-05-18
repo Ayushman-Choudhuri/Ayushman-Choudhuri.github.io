@@ -49,11 +49,10 @@
     function renderCard(p) {
       var imgHTML = p.image
         ? '<div class="project-card-img"><img src="' + p.image + '" alt="' + p.title + ' preview" loading="lazy"></div>'
-        : '<div class="project-card-img"><span class="project-card-img--placeholder">' + p.icon + '</span></div>';
+        : '<div class="project-card-img"></div>';
       return '<a href="' + p.href + '" class="project-card">' +
         imgHTML +
         '<div class="project-card-header">' +
-          '<div class="project-card-icon">' + p.icon + '</div>' +
           '<span class="project-card-status ' + (p.status === 'active' ? 'status-active' : 'status-completed') + '">' +
             (p.status === 'active' ? 'In Progress' : 'Completed') +
           '</span>' +
