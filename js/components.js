@@ -33,7 +33,7 @@
     '<a href="https://linkedin.com/in/ayushmanchoudhuri/" target="_blank" rel="noopener">LinkedIn</a>' +
     '<a href="mailto:ayushc205@gmail.com">Email</a>' +
     '</div>' +
-    '<p class="footer-copy">&copy; ' + year + ' Ayushman Choudhuri &mdash; Built with HTML, CSS &amp; JS.</p>' +
+    '<p class="footer-copy">&copy; ' + year + ' Ayushman Choudhuri.</p>' +
     '</div></footer>';
 
   var navEl = document.getElementById('nav-placeholder');
