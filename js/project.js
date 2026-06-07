@@ -74,7 +74,7 @@
               }).join('') +
             '</div>' +
             (data.tags && data.tags.length ?
-              '<div class="sidebar-card"><h4>Technologies</h4>' +
+              '<div class="sidebar-card"><h4>Tech Stack</h4>' +
               '<div class="tags" style="margin-top:8px">' +
               data.tags.map(function (t) { return '<span class="tag">' + t + '</span>'; }).join('') +
               '</div></div>' : '') +
