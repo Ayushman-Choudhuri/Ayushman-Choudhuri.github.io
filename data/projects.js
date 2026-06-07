@@ -35,7 +35,7 @@ window.PROJECTS = {
       date: '2024',
       status: 'completed',
       icon: '🌍',
-      image: '/assets/images/projects/terrawatch.jpg',
+      image: 'assets/images/projects/terrawatch.png',
       href: '/projects/terrawatch.html',
     },
     {
