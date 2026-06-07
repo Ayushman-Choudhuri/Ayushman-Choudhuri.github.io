@@ -11,7 +11,7 @@ window.PROJECTS = {
       date: '2026',
       status: 'active',
       icon: '📦',
-      image: '/assets/images/projects/mcap2hdf5.png',
+      image: 'assets/images/projects/mcap2hdf5_logo.png',
       href: '/projects/mcap2hdf5.html',
     },
     {
@@ -23,7 +23,7 @@ window.PROJECTS = {
       date: '2024 – 2025',
       status: 'completed',
       icon: '🎓',
-      image: '/assets/images/projects/foxglove_zoomed.png',
+      image: 'assets/images/projects/foxglove_zoomed.png',
       href: '/projects/master-thesis.html',
     },
     {
