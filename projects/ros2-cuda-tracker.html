@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Real-time object detection and tracking pipeline built in C++ and CUDA, targeting NVIDIA Jetson Orin NX.">
+  <title>ROS2 CUDA Tracker | Ayushman Choudhuri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+  <main id="project-detail"></main>
+  <div id="footer-placeholder"></div>
+
+  <script>
+    window.PROJECT = {
+      id: 'ros2-cuda-tracker',
+      title: 'ROS2 CUDA Tracker',
+      subtitle: 'Real-time object detection and tracking pipeline on NVIDIA Jetson Orin NX',
+      category: 'recent',
+      status: 'active',
+      date: '2026',
+      github: 'https://github.com/Ayushman-Choudhuri/ros2-cuda-tracker',
+      tags: ['C++', 'CUDA', 'ROS2', 'TensorRT', 'YOLOv10', 'SORT', 'NVIDIA Jetson', 'Computer Vision'],
+      sections: [
+        {
+          heading: 'Overview',
+          content: `
+            <p>
+              ros2-cuda-tracker is a real-time object detection and tracking pipeline built from the ground up
+              in C++ and CUDA, targeting deployment on NVIDIA Jetson Orin NX. The project integrates
+              YOLOv10n (TensorRT FP16), SORT tracking, and ROS2 Humble LifecycleNodes into a
+              production-grade robotics pipeline — with a deliberate, staged approach to GPU memory
+              optimization that treats CPU-side baselines as measured benchmarks rather than shortcuts.
+            </p>
+          `
+        },
+        {
+          heading: 'Current Implementation',
+          content: `
+            <p>The pipeline delivers end-to-end detection and tracking across three tightly coupled components:</p>
+            <ul>
+              <li>
+                <strong>TensorRT FP16 inference engine</strong> —
+                YOLOv10n optimized for Jetson with async CUDA streams
+              </li>
+              <li>
+                <strong>SORT tracker</strong> —
+                Kalman filtering for state prediction combined with the Hungarian algorithm for assignment
+              </li>
+              <li>
+                <strong>Camera capture loop</strong> —
+                feeds the full pipeline with ROS2 LifecycleNode lifecycle management
+              </li>
+            </ul>
+            <p>
+              The current CPU-side baseline is intentional. It establishes measured per-component benchmarks
+              before any replacement, ensuring that each CUDA optimization is justified by real numbers
+              rather than intuition.
+            </p>
+          `
+        },
+        {
+          heading: 'CUDA Optimization Roadmap',
+          content: `
+            <p>The next stage replaces every CPU-bound operation with custom CUDA kernels:</p>
+            <ul>
+              <li>
+                <strong>Single-pass preprocessing kernel</strong> —
+                letterboxing, channel swapping, normalization, and HWC→NCHW layout in one GPU pass,
+                eliminating redundant memory traversals
+              </li>
+              <li>
+                <strong>On-device postprocessing</strong> —
+                NMS and bounding box decoding stay GPU-resident; only filtered detections cross D2H
+              </li>
+              <li>
+                <strong>Batched SORT kernels</strong> —
+                Kalman predict, IoU matrix computation, and Kalman update become parallel CUDA kernels,
+                reducing D2H traffic to a sub-1KB cost matrix per frame
+              </li>
+            </ul>
+          `
+        },
+        {
+          heading: 'Target Architecture',
+          content: `
+            <p>
+              The final target is a triple-buffered CUDA stream pipeline where capture, inference, and
+              publish run concurrently — paired with an INT8 TensorRT engine calibrated for Jetson.
+              The goal is a fully GPU-resident tracking pipeline where the CPU only touches final track IDs.
+            </p>
+          `
+        }
+      ]
+    };
+  </script>
+  <script src="/js/components.js"></script>
+  <script src="/js/project.js"></script>
+</body>
+</html>

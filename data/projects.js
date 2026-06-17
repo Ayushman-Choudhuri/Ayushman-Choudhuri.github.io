@@ -3,6 +3,18 @@
 window.PROJECTS = {
   recent: [
     {
+      id: 'ros2-cuda-tracker',
+      title: 'ROS2 CUDA Tracker',
+      subtitle: 'Real-time object detection and tracking pipeline on NVIDIA Jetson Orin NX',
+      description: 'Production-grade C++ and CUDA pipeline combining YOLOv10n (TensorRT FP16), SORT tracking, and ROS2 Humble LifecycleNodes — built with a staged approach to full GPU-residency on Jetson.',
+      tags: ['C++', 'CUDA', 'ROS2', 'TensorRT', 'YOLOv10', 'SORT', 'NVIDIA Jetson', 'Computer Vision'],
+      date: '2026',
+      status: 'active',
+      icon: '🎯',
+      image: null,
+      href: '/projects/ros2-cuda-tracker.html',
+    },
+    {
       id: 'mcap2hdf5',
       title: 'mcap2hdf5',
       subtitle: 'Convert ROS2 MCAP sensor recordings into ML-ready HDF5 datasets',
@@ -123,18 +135,6 @@ window.PROJECTS = {
       icon: '⚙️',
       image: '/assets/images/projects/circle-manipulator.jpg',
       href: '/projects/circle-manipulator.html',
-    },
-    {
-      id: 'brusrol',
-      title: 'Brusrol',
-      subtitle: 'Assistive toothbrush for people with motor disabilities',
-      description: 'Co-developed an assistive toothbrush device with Dr. Jaskirat Kaur to help people with motor disabilities. Won the Provenance business competition in 2018.',
-      tags: ['Assistive Technology', 'Product Design', 'Hardware', 'Medical'],
-      date: '2018',
-      status: 'completed',
-      icon: '🦷',
-      image: '/assets/images/projects/brusrol.jpg',
-      href: '/projects/brusrol.html',
     },
     {
       id: 'strange-matter',
