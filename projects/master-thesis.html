@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <title>Master Thesis | Ayushman Choudhuri</title>
+  <meta name="description" content="Real-time explainability system for a transformer-based 3D LiDAR object detector, deployed as a containerized ROS 2 pipeline for autonomous driving.">
+  <title>Explainable Transformer-based 3D Object Detection in LiDAR Point Clouds | Ayushman Choudhuri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -18,31 +18,213 @@
   <script>
     window.PROJECT = {
       id: 'master-thesis',
-      title: 'Explainable Transformer-based 3D Object Detection',
-      subtitle: 'Real-time XAI for LiDAR point cloud models in autonomous driving',
+      title: 'Explainable Transformer-based 3D Object Detection in LiDAR Point Clouds',
+      subtitle: 'Real-time saliency maps for transformer LiDAR detectors, deployed in a live autonomous driving stack',
       category: 'recent',
       status: 'completed',
-      date: '2024 – 2025',
-      institution: 'RWTH Aachen University',
-      advisor: 'Till Beemelmans, M.Sc.',
+      date: 'June 2025',
+      institution: 'RWTH Aachen University · ika',
+      advisor: 'Till Beemelmanns, M.Sc. (Supervisor) · Prof. Dr.-Ing. Lutz Eckstein (Examiner)',
       paper: 'https://arxiv.org/abs/2605.16087',
-      tags: ['Transformers', 'LiDAR', '3D Object Detection', 'XAI', 'Autonomous Driving', 'PyTorch', 'Python'],
+      tags: [
+        'Python', 'TensorFlow 2', 'TensorRT', 'ROS 2', 'Docker',
+        'Transformers', 'LiDAR', '3D Object Detection', 'XAI', 'Autonomous Driving', 'CUDA'
+      ],
       sections: [
         {
           heading: 'Overview',
-          content: '<p>This master\'s thesis, conducted at the Institut für Kraftfahrzeuge (ika) at RWTH Aachen University, addresses a critical gap in modern autonomous driving systems: while transformer-based models have achieved state-of-the-art performance in 3D object detection from LiDAR point clouds, their internal decision-making remains opaque — a major barrier to deployment in safety-critical systems.</p><p>The project focuses on developing explainability methods that can run in real time alongside the detection pipeline, without imposing prohibitive computational overhead.</p>'
+          content: `
+            <p>
+              Autonomous driving perception systems are highly accurate, but largely opaque.
+              Regulators, developers, and safety engineers cannot easily audit why a model made
+              a detection, what it was looking at, or how uncertain it was. This thesis addresses
+              that gap by building a real-time explainability system for a transformer-based 3D
+              object detector operating on LiDAR point clouds, and deploying it as part of a live
+              autonomous driving software stack.
+            </p>
+            <p>
+              The work is part of a broader Trustworthy AI effort at ika (published at ITSC 2026),
+              and contributed directly to the deployment and real-time inference pipeline components
+              of that system.
+            </p>
+          `
         },
         {
-          heading: 'Problem Statement',
-          content: '<p>Transformer architectures such as DETR3D and BEVFormer have revolutionized 3D perception in autonomous driving. However, existing XAI techniques face two fundamental limitations:</p><ul><li><strong>Computational overhead:</strong> Most XAI methods (e.g., SHAP, gradient-based saliency) require multiple forward passes, making them unsuitable for real-time inference.</li><li><strong>3D incompatibility:</strong> Existing methods were largely designed for 2D image classification and do not translate naturally to the irregular, sparse structure of LiDAR point clouds.</li></ul><p>This thesis addresses both limitations simultaneously.</p>'
+          heading: 'The Problem',
+          content: `
+            <p>
+              Modern LiDAR-based 3D detectors, particularly transformer architectures, treat the
+              full scene as a token set and route information via attention mechanisms. This is powerful
+              for detection accuracy, but the intermediate representations are difficult to interpret.
+              Standard explainability methods like LIME, SHAP, and D-RISE require dozens to hundreds
+              of model forward-passes per frame, making them impractical for real-time deployment.
+              Gradient-based methods like Grad-CAM require backpropagation, adding further overhead.
+            </p>
+            <p>
+              The challenge: generate faithful, spatially grounded explanations of 3D detections at
+              inference speed, without modifying the model.
+            </p>
+          `
         },
         {
-          heading: 'Technical Approach',
-          content: '<p>The research develops XAI techniques specifically designed for transformer-based 3D detection architectures, focusing on:</p><ul><li>Attention-based saliency methods that leverage the transformer\'s built-in attention maps without extra forward passes</li><li>Efficient approximation strategies enabling single-pass explainability</li><li>Point cloud-native visualization tools that project explanations back into 3D space</li><li>Evaluation frameworks measuring both explanation quality and computational cost</li></ul>'
+          heading: 'Approach',
+          content: `
+            <p>
+              The base architecture is TPOD (Transformer and Pillar-based Object Detector), a
+              decoder-only transformer that attends over a Bird's Eye View (BEV) pillar feature map
+              to predict 3D bounding boxes. At each decoder layer, the multi-head cross-attention
+              module produces an attention tensor that encodes how strongly each object query interacts
+              with each spatial grid cell of the input point cloud.
+            </p>
+            <p>
+              By extracting and fusing these cross-attention tensors across all decoder layers and
+              attention heads, the model's internal spatial focus becomes interpretable as a saliency
+              map over the BEV point cloud, with no extra forward passes required.
+            </p>
+            <h3 style="font-size:1.05rem;color:var(--text);margin:28px 0 10px;font-weight:600;">
+              Saliency Map Generation
+            </h3>
+            <p>Two fusion strategies were implemented and compared:</p>
+            <p>
+              <strong>Mean Layer Fusion:</strong> averages attention maps across all decoder layers
+              and heads, then collapses across active queries via summation. This produces a stable,
+              object-centric saliency map that suppresses layer-specific outliers and reflects
+              consistent attention patterns across the full decoder hierarchy.
+            </p>
+            <p>
+              <strong>Max Layer Fusion:</strong> takes the element-wise maximum across layers,
+              capturing the most prominent attention peak at any single decoder layer. This highlights
+              both the detected object and its immediate spatial context, making it more sensitive to
+              transient but potentially critical activations.
+            </p>
+            <p>
+              In both cases the final map is min-max normalized to [0, 1] and overlaid on the BEV
+              point cloud projection for visualization.
+            </p>
+            <p>
+              Qualitative analysis showed a consistent pattern: early decoder layers attend to
+              localized object regions, while later layers broaden attention to the surrounding point
+              cloud, consistent with a hierarchical feature integration process.
+            </p>
+          `
         },
         {
-          heading: 'Significance',
-          content: '<p>Explainability is not merely an academic concern in autonomous driving — it is a prerequisite for regulatory compliance, debugging model failures, and building public trust in autonomous systems. This work contributes toward making transformer-based perception models not just accurate, but interpretable and auditable.</p>'
+          heading: 'Deployment Pipeline',
+          content: `
+            <p>
+              The inference and visualization system was built as a containerized ROS 2 pipeline,
+              running on an x86_64 host with an NVIDIA TITAN RTX P8 GPU.
+            </p>
+            <p>
+              Model optimization used the TensorFlow-TensorRT (TF-TRT) framework with FP16
+              mixed-precision quantization. This reduced mean inference latency from ~116 ms
+              (TF2 FP32 baseline) to ~57 ms, a 48% reduction, while preserving detection accuracy.
+            </p>
+            <p>The ROS 2 node architecture consists of three nodes:</p>
+            <ul>
+              <li>
+                <strong>rosbag2_player:</strong> replays pre-recorded Waymo Open Dataset point
+                clouds to emulate live sensor data
+              </li>
+              <li>
+                <strong>tpod_lidar_object_detector:</strong> runs inference, generates saliency
+                maps, and publishes detection markers and occupancy grid messages
+              </li>
+              <li>
+                <strong>foxglove_bridge:</strong> streams all outputs to Foxglove Studio over a
+                WebSocket protocol for real-time visualization
+              </li>
+            </ul>
+            <p>End-to-end pipeline benchmarks (100 samples, TITAN RTX P8):</p>
+            <table style="width:100%;border-collapse:collapse;margin:20px 0;font-size:0.875rem;">
+              <thead>
+                <tr style="border-bottom:2px solid var(--border);">
+                  <th style="text-align:left;padding:8px 12px;color:var(--text);font-weight:600;">
+                    Stage
+                  </th>
+                  <th style="text-align:right;padding:8px 12px;color:var(--text);font-weight:600;">
+                    Mean Latency
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:8px 12px;color:var(--text-muted);">Point cloud preprocessing</td>
+                  <td style="padding:8px 12px;text-align:right;color:var(--text-muted);">12.5 ms</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:8px 12px;color:var(--text-muted);">Model inference</td>
+                  <td style="padding:8px 12px;text-align:right;color:var(--text-muted);">68.0 ms</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:8px 12px;color:var(--text-muted);">Saliency map generation</td>
+                  <td style="padding:8px 12px;text-align:right;color:var(--text-muted);">10.0 ms</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:8px 12px;color:var(--text-muted);">Message construction + publish</td>
+                  <td style="padding:8px 12px;text-align:right;color:var(--text-muted);">~4.3 ms</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 12px;color:var(--text);font-weight:600;">Total loop</td>
+                  <td style="padding:8px 12px;text-align:right;color:var(--text);font-weight:600;">~94.8 ms</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              The system sustains real-time throughput (~10 Hz), matching the typical LiDAR sweep rate.
+            </p>
+            <p>
+              The visualization in Foxglove Studio fuses three layers: the raw 3D point cloud,
+              predicted bounding boxes with class labels and confidence scores, and the heatmap
+              saliency overlay. This lets developers inspect at a glance which regions of the scene
+              drove each detection.
+            </p>
+          `
+        },
+        {
+          heading: 'Key Results',
+          content: `
+            <ul>
+              <li>
+                Saliency maps are qualitatively faithful: attention concentrates around detected
+                objects and their immediate surroundings, consistent across object classes and scenes.
+              </li>
+              <li>
+                Mean fusion provides stable, object-centric explanations; max fusion is more
+                sensitive to spatially localized, high-intensity activations.
+              </li>
+              <li>
+                TF-TRT FP16 quantization delivered a 48% latency reduction over the FP32 TF2
+                baseline with no measurable accuracy loss.
+              </li>
+              <li>
+                Explainability integration overhead is minimal: adding cross-attention extraction
+                increased mean latency by ~15 ms over the base model.
+              </li>
+              <li>
+                The full pipeline runs within a Docker container for reproducibility across
+                deployment environments.
+              </li>
+            </ul>
+          `
+        },
+        {
+          heading: 'Contribution to the IEEE Paper',
+          content: `
+            <p>
+              This thesis work fed directly into the co-authored IEEE paper
+              <a href="https://arxiv.org/abs/2605.16087" target="_blank" rel="noopener">
+                "Towards Trustworthy and Explainable AI for Perception Models: From Concept to
+                Prototype Vehicle Deployment"
+              </a>
+              (arXiv:2605.16087, 2026). The broader paper extends the approach to a multi-modal
+              LiDAR-camera system (CMT), adds calibrated uncertainty quantification and robustness
+              evaluation, and deploys the full Trustworthy AI stack on the <em>karl.</em> research
+              vehicle at RWTH Aachen. My thesis work on real-time saliency generation and the ROS 2
+              inference pipeline contributed foundational implementation experience for the deployment
+              components of that system.
+            </p>
+          `
         }
       ]
     };
