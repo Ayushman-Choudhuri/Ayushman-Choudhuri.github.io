@@ -296,7 +296,7 @@ section { padding: 80px 0; }
 @media (max-width: 768px) { .project-layout { grid-template-columns: 1fr; } }
 .project-body h2 { font-size: 1.2rem; color: var(--text); margin: 36px 0 14px; }
 .project-body h2:first-child { margin-top: 0; }
-.project-body p { margin-bottom: 14px; line-height: 1.75; }
+.project-body p { margin-bottom: 14px; line-height: 1.75; text-align: justify; }
 .project-body ul, .project-body ol { list-style: disc; padding-left: 24px; color: var(--text-muted); margin-bottom: 14px; }
 .project-body li { margin-bottom: 6px; line-height: 1.6; }
 .project-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 16px; }
