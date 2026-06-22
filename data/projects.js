@@ -59,7 +59,7 @@ window.PROJECTS = {
       date: '2023',
       status: 'completed',
       icon: '🤖',
-      image: '/assets/images/projects/sokrates.jpg',
+      image: '/assets/images/projects/sokrates_ui.png',
       href: '/projects/sokrates.html',
     },
     {
@@ -71,7 +71,7 @@ window.PROJECTS = {
       date: '2022',
       status: 'completed',
       icon: '🔊',
-      image: '/assets/images/projects/audio-classifier.jpg',
+      image: '/assets/images/projects/icnap.png',
       href: '/projects/audio-classifier.html',
     },
     {
