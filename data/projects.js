@@ -59,7 +59,7 @@ window.PROJECTS = {
       date: '2023',
       status: 'completed',
       icon: '🤖',
-      image: '/assets/images/projects/sokrates_ui.png',
+      image: '/assets/images/projects/sokrates_design.jpg',
       href: '/projects/sokrates.html',
     },
     {
@@ -83,7 +83,7 @@ window.PROJECTS = {
       date: '2022',
       status: 'completed',
       icon: '📷',
-      image: '/assets/images/projects/stereo-visual-odometry.jpg',
+      image: '/assets/images/projects/stereo-odometry.jpg',
       href: '/projects/stereo-visual-odometry.html',
     },
     {
@@ -95,7 +95,7 @@ window.PROJECTS = {
       date: '2022',
       status: 'completed',
       icon: '🎯',
-      image: '/assets/images/projects/yolov5-deepsort.gif',
+      image: '/assets/images/projects/mall.gif',
       href: '/projects/yolov5-deepsort.html',
     },
     {
@@ -133,7 +133,7 @@ window.PROJECTS = {
       date: '2019',
       status: 'completed',
       icon: '⚙️',
-      image: '/assets/images/projects/circle-manipulator.jpg',
+      image: '/assets/images/projects/circle.jpeg',
       href: '/projects/circle-manipulator.html',
     },
     {
