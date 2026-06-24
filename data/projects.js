@@ -107,7 +107,7 @@ window.PROJECTS = {
       date: '2021',
       status: 'completed',
       icon: '🗺️',
-      image: '/assets/images/projects/occupancy-grid.jpg',
+      image: '/assets/images/projects/slam_map.png',
       href: '/projects/occupancy-grid.html',
     },
     {
@@ -119,7 +119,7 @@ window.PROJECTS = {
       date: '2021',
       status: 'completed',
       icon: '📍',
-      image: '/assets/images/projects/amcl-localization.gif',
+      image: '/assets/images/projects/localization.png',
       href: '/projects/amcl-localization.html',
     },
   ],
@@ -157,7 +157,7 @@ window.PROJECTS = {
       date: '2016',
       status: 'completed',
       icon: '🔧',
-      image: '/assets/images/projects/modulus-r.jpg',
+      image: '/assets/images/projects/modulusr.jpg',
       href: '/projects/modulus-r.html',
     },
     {
@@ -169,7 +169,7 @@ window.PROJECTS = {
       date: '2015',
       status: 'completed',
       icon: '🔩',
-      image: '/assets/images/projects/modulus-x.jpg',
+      image: '/assets/images/projects/modulusx.jpg',
       href: '/projects/modulus-x.html',
     },
     {
@@ -181,7 +181,7 @@ window.PROJECTS = {
       date: '2015 – 2016',
       status: 'completed',
       icon: '💨',
-      image: '/assets/images/projects/robocon-wind.jpg',
+      image: '/assets/images/projects/wind-powered-robot.png',
       href: '/projects/robocon-wind.html',
     },
     {
