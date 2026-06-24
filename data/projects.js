@@ -145,7 +145,7 @@ window.PROJECTS = {
       date: '2016',
       status: 'completed',
       icon: '🚀',
-      image: '/assets/images/projects/strange-matter.jpg',
+      image: '/assets/images/projects/strange_matter_logo.png',
       href: '/projects/strange-matter.html',
     },
     {
@@ -193,7 +193,7 @@ window.PROJECTS = {
       date: '2014 – 2015',
       status: 'completed',
       icon: '🏸',
-      image: '/assets/images/projects/robocon-badminton.jpg',
+      image: '/assets/images/projects/badminton.jpg',
       href: '/projects/robocon-badminton.html',
     },
   ],
