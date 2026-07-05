@@ -319,12 +319,12 @@ section { padding: 80px 0; }
    ABOUT PAGE
    ============================================================ */
 .about-hero { padding: 100px 0 56px; }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
 .about-text h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 6px; }
 .about-text h1 span { color: var(--accent); }
 .about-role { font-size: 1rem; color: var(--accent); font-weight: 600; margin-bottom: 24px; letter-spacing: 0.01em; }
-.about-text p { margin-bottom: 14px; line-height: 1.75; }
+.about-text p { margin-bottom: 14px; line-height: 1.75; text-align: justify; hyphens: auto; }
 .about-image-placeholder {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
   aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center;
@@ -404,9 +404,9 @@ section { padding: 80px 0; }
 @media (max-width: 480px) { .resume-tech-grid { grid-template-columns: 1fr; } }
 .resume-section { margin-bottom: 44px; }
 .resume-section-title {
-  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--accent); margin-bottom: 20px;
-  padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  font-size: 1.15rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--accent); margin-bottom: 20px;
+  padding-bottom: 10px; border-bottom: 2px solid var(--accent);
 }
 .resume-entry { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--surface-2); }
 .resume-entry:last-child { border-bottom: none; padding-bottom: 0; }
@@ -416,7 +416,8 @@ section { padding: 80px 0; }
 .resume-entry-org { font-size: 0.85rem; color: var(--accent); margin-bottom: 8px; }
 .resume-entry-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
 .resume-entry-desc ul { list-style: disc; padding-left: 18px; margin-top: 6px; }
-.resume-entry-desc li { margin-bottom: 4px; }
+.resume-entry-desc li { margin-bottom: 4px; text-align: justify; hyphens: auto; }
+.resume-section > p { line-height: 1.75; text-align: justify; hyphens: auto; }
 .resume-sidebar-section { margin-bottom: 28px; }
 .resume-sidebar-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-subtle); margin-bottom: 10px; }
 .resume-skill-list { display: flex; flex-direction: column; gap: 6px; }
