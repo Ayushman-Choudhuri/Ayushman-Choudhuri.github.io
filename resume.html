@@ -56,8 +56,9 @@
         <main>
 
           <!-- Profile -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Profile</h2>
+          <details class="resume-section">
+            <summary class="resume-section-title">Profile</summary>
+            <div class="resume-section-body">
             <p>
               Robotics Software Engineer with 5+ years of experience building production robotic systems at scale.
               Specialized in low-latency 2D/3D object detection, multi-sensor fusion (camera, LiDAR, IMU), and
@@ -65,11 +66,13 @@
               ROS2/C++ perception pipelines and model quantization to MLOps for production edge deployment.
               M.Sc. in Robotic Systems Engineering, RWTH Aachen University.
             </p>
-          </div>
+            </div>
+          </details>
 
           <!-- Experience -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Experience</h2>
+          <details class="resume-section" id="experience-section">
+            <summary class="resume-section-title">Experience</summary>
+            <div class="resume-section-body">
 
             <div class="timeline" id="experience-timeline">
               <div class="timeline-track"><div class="timeline-track-fill"></div></div>
@@ -232,11 +235,13 @@
               </div>
 
             </div>
-          </div>
+            </div>
+          </details>
 
           <!-- Education -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Education</h2>
+          <details class="resume-section">
+            <summary class="resume-section-title">Education</summary>
+            <div class="resume-section-body">
 
             <div class="resume-entry">
               <div class="resume-entry-header">
@@ -266,27 +271,27 @@
                 </ul>
               </div>
             </div>
-          </div>
+            </div>
+          </details>
 
           <!-- Research Publications -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Research Publications</h2>
+          <details class="resume-section">
+            <summary class="resume-section-title">Research Publications</summary>
+            <div class="resume-section-body">
             <p style="line-height:1.75">
               [1] T. Beemelmanns, S. Sharifi, M. Mehrotra, <strong>A. Choudhuri</strong>, L. Eckstein.
               <em>Towards Trustworthy and Explainable AI for Perception Models: From Concept to Prototype Vehicle Deployment.</em>
               IEEE International Conference on Intelligent Transportation Systems (ITSC), 2026.
               <a href="https://arxiv.org/abs/2605.16087" target="_blank" rel="noopener">arXiv:2605.16087</a>
             </p>
-          </div>
+            </div>
+          </details>
 
-        </main>
-
-      </div>
-
-      <!-- Technical Stack -->
-      <div class="resume-tech-section">
-        <h2 class="resume-tech-title">Technical Stack</h2>
-        <div class="resume-tech-grid">
+          <!-- Technical Stack -->
+          <details class="resume-section">
+            <summary class="resume-section-title">Technical Stack</summary>
+            <div class="resume-section-body">
+              <div class="resume-tech-grid">
           <div>
             <p class="skills-col-title">Programming</p>
             <div class="skill-list">
@@ -339,7 +344,12 @@
               <div class="skill-item"><span class="skill-dot"></span>German (B1)</div>
             </div>
           </div>
-        </div>
+              </div>
+            </div>
+          </details>
+
+        </main>
+
       </div>
 
     </div>
