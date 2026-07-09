@@ -366,17 +366,7 @@ section { padding: 80px 0; }
    RESUME PAGE
    ============================================================ */
 .resume-header { padding: 100px 0 56px; border-bottom: 1px solid var(--border); }
-.resume-layout { padding: 60px 0 0; }
-.resume-tech-section {
-  border-top: 1px solid var(--border);
-  padding: 40px 0 60px;
-}
-.resume-tech-title {
-  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--accent);
-  padding-bottom: 8px; border-bottom: 1px solid var(--border);
-  margin-bottom: 32px;
-}
+.resume-layout { padding: 60px 0; }
 .resume-tech-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -384,12 +374,36 @@ section { padding: 80px 0; }
 }
 @media (max-width: 900px) { .resume-tech-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .resume-tech-grid { grid-template-columns: 1fr; } }
-.resume-section { margin-bottom: 44px; }
+.resume-section { margin-bottom: 28px; interpolate-size: allow-keywords; }
 .resume-section-title {
   font-size: 1.15rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.06em; color: var(--accent); margin-bottom: 20px;
+  letter-spacing: 0.06em; color: var(--accent);
   padding-bottom: 10px; border-bottom: 2px solid var(--accent);
+  cursor: pointer;
+  list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
+.resume-section-title::-webkit-details-marker { display: none; }
+.resume-section-title:hover { color: var(--text); }
+.resume-section-title::after {
+  content: '';
+  width: 9px; height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+.resume-section[open] > .resume-section-title::after { transform: rotate(45deg); }
+.resume-section::details-content {
+  transition: height 0.3s ease, content-visibility 0.3s allow-discrete;
+  height: 0;
+  overflow: clip;
+}
+.resume-section[open]::details-content { height: auto; }
+.resume-section-body { padding-top: 20px; }
 .resume-entry { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--surface-2); }
 .resume-entry:last-child { border-bottom: none; padding-bottom: 0; }
 .resume-entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; flex-wrap: wrap; }
@@ -399,7 +413,7 @@ section { padding: 80px 0; }
 .resume-entry-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
 .resume-entry-desc ul { list-style: disc; padding-left: 18px; margin-top: 6px; }
 .resume-entry-desc li { margin-bottom: 4px; text-align: justify; hyphens: auto; }
-.resume-section > p { line-height: 1.75; text-align: justify; hyphens: auto; }
+.resume-section-body > p { line-height: 1.75; text-align: justify; hyphens: auto; }
 .resume-sidebar-section { margin-bottom: 28px; }
 .resume-sidebar-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-subtle); margin-bottom: 10px; }
 .resume-skill-list { display: flex; flex-direction: column; gap: 6px; }
@@ -542,6 +556,8 @@ section { padding: 80px 0; }
     transition: none;
   }
   .timeline-js .timeline-track-fill { transform: scaleY(1); }
+  .resume-section::details-content { transition: none; }
+  .resume-section-title::after { transition: none; }
 }
 
 /* ============================================================
@@ -687,4 +703,17 @@ section { padding: 80px 0; }
   /* Interest grid: 2 cols */
   .interest-grid { grid-template-columns: repeat(2, 1fr); }
   .interest-card { padding: 18px 12px; }
+}
+
+/* ============================================================
+   PRINT — force all resume sections open, hide chrome
+   ============================================================ */
+@media print {
+  .resume-section::details-content {
+    height: auto;
+    content-visibility: visible;
+    display: block;
+  }
+  .resume-section-title { cursor: default; }
+  .resume-section-title::after { display: none; }
 }
