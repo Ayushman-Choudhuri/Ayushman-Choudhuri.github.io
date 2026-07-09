@@ -467,6 +467,102 @@ section { padding: 80px 0; }
 .career-group-body .resume-entry:last-child { padding-bottom: 0; }
 
 /* ============================================================
+   EXPERIENCE TIMELINE (resume page)
+   ============================================================ */
+.timeline { position: relative; margin-left: 150px; padding-left: 36px; }
+.timeline-track {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--surface-2);
+  border-radius: 1px;
+}
+.timeline-track-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-dim));
+  transform-origin: top;
+  transform: scaleY(1); /* fully drawn by default (no-JS / reduced-motion) */
+}
+.timeline-js .timeline-track-fill { transform: scaleY(0); will-change: transform; }
+
+.timeline-entry { position: relative; margin-bottom: 44px; }
+.timeline-entry:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -41px; /* centers 12px dot on the 2px track (padding-left 36px) */
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent-dim);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.timeline-entry.active .timeline-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.timeline-date {
+  position: absolute;
+  left: -186px; /* gutter: 150px margin + 36px padding */
+  top: 5px;
+  width: 130px;
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+  line-height: 1.4;
+}
+
+.timeline-company { display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px; }
+.timeline-company-name { font-size: 1rem; font-weight: 700; color: var(--text); font-family: var(--font-display); }
+.timeline-company-meta { font-size: 0.85rem; color: var(--accent); }
+
+/* entries inside the timeline drop their old list borders */
+.timeline .timeline-content > .resume-entry { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+/* inner promotion track gets breathing room from the main line */
+.timeline .career-group-body { margin-left: 24px; }
+
+/* gutter date replaces inline date on wide screens (individual entries only;
+   per-role dates inside the career group stay visible) */
+@media (min-width: 901px) {
+  .timeline-content > .resume-entry > .resume-entry-header > .resume-entry-date { display: none; }
+}
+
+/* scroll-reveal states (only when JS is active) */
+.timeline-js .timeline-entry {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.timeline-js .timeline-entry .timeline-dot { transform: scale(0); }
+.timeline-js .timeline-entry.visible { opacity: 1; transform: none; }
+.timeline-js .timeline-entry.visible .timeline-dot { transform: scale(1); }
+
+@media (max-width: 900px) {
+  .timeline { margin-left: 4px; padding-left: 26px; }
+  .timeline-date { display: none; }
+  .timeline-dot { left: -31px; } /* re-center for 26px padding */
+  .timeline .career-group-body { margin-left: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-js .timeline-entry,
+  .timeline-js .timeline-entry .timeline-dot {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .timeline-js .timeline-track-fill { transform: scaleY(1); }
+}
+
+/* ============================================================
    STAT CARDS (home page)
    ============================================================ */
 .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
