@@ -335,23 +335,6 @@ section { padding: 80px 0; }
 }
 
 /* ============================================================
-   TIMELINE
-   ============================================================ */
-.timeline { position: relative; padding-left: 24px; }
-.timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 0; width: 1px; background: var(--border); }
-.timeline-item { position: relative; padding-bottom: 32px; }
-.timeline-item:last-child { padding-bottom: 0; }
-.timeline-item::before {
-  content: ''; position: absolute; left: -28px; top: 7px;
-  width: 8px; height: 8px; background: var(--accent);
-  border-radius: 50%; box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-}
-.timeline-date { font-size: 0.78rem; color: var(--accent); font-weight: 600; margin-bottom: 4px; }
-.timeline-title { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
-.timeline-org { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; }
-.timeline-desc { font-size: 0.85rem; color: var(--text-subtle); line-height: 1.55; }
-
-/* ============================================================
    SKILL ITEMS
    ============================================================ */
 .skill-item {
@@ -383,17 +366,7 @@ section { padding: 80px 0; }
    RESUME PAGE
    ============================================================ */
 .resume-header { padding: 100px 0 56px; border-bottom: 1px solid var(--border); }
-.resume-layout { padding: 60px 0 0; }
-.resume-tech-section {
-  border-top: 1px solid var(--border);
-  padding: 40px 0 60px;
-}
-.resume-tech-title {
-  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--accent);
-  padding-bottom: 8px; border-bottom: 1px solid var(--border);
-  margin-bottom: 32px;
-}
+.resume-layout { padding: 60px 0; }
 .resume-tech-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -401,12 +374,36 @@ section { padding: 80px 0; }
 }
 @media (max-width: 900px) { .resume-tech-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .resume-tech-grid { grid-template-columns: 1fr; } }
-.resume-section { margin-bottom: 44px; }
+.resume-section { margin-bottom: 28px; interpolate-size: allow-keywords; }
 .resume-section-title {
   font-size: 1.15rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.06em; color: var(--accent); margin-bottom: 20px;
+  letter-spacing: 0.06em; color: var(--accent);
   padding-bottom: 10px; border-bottom: 2px solid var(--accent);
+  cursor: pointer;
+  list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
+.resume-section-title::-webkit-details-marker { display: none; }
+.resume-section-title:hover { color: var(--text); }
+.resume-section-title::after {
+  content: '';
+  width: 9px; height: 9px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+.resume-section[open] > .resume-section-title::after { transform: rotate(45deg); }
+.resume-section::details-content {
+  transition: height 0.3s ease, content-visibility 0.3s allow-discrete;
+  height: 0;
+  overflow: clip;
+}
+.resume-section[open]::details-content { height: auto; }
+.resume-section-body { padding-top: 20px; }
 .resume-entry { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--surface-2); }
 .resume-entry:last-child { border-bottom: none; padding-bottom: 0; }
 .resume-entry-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 4px; flex-wrap: wrap; }
@@ -416,7 +413,7 @@ section { padding: 80px 0; }
 .resume-entry-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
 .resume-entry-desc ul { list-style: disc; padding-left: 18px; margin-top: 6px; }
 .resume-entry-desc li { margin-bottom: 4px; text-align: justify; hyphens: auto; }
-.resume-section > p { line-height: 1.75; text-align: justify; hyphens: auto; }
+.resume-section-body > p { line-height: 1.75; text-align: justify; hyphens: auto; }
 .resume-sidebar-section { margin-bottom: 28px; }
 .resume-sidebar-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-subtle); margin-bottom: 10px; }
 .resume-skill-list { display: flex; flex-direction: column; gap: 6px; }
@@ -426,7 +423,6 @@ section { padding: 80px 0; }
 /* ============================================================
    CAREER PROGRESSION GROUP (resume page)
    ============================================================ */
-.career-group { margin-bottom: 28px; }
 .career-group-body {
   padding: 0;
   position: relative;
@@ -465,6 +461,104 @@ section { padding: 80px 0; }
   top: 9px;
 }
 .career-group-body .resume-entry:last-child { padding-bottom: 0; }
+
+/* ============================================================
+   EXPERIENCE TIMELINE (resume page)
+   ============================================================ */
+.timeline { position: relative; margin-left: 150px; padding-left: 36px; }
+.timeline-track {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--surface-2);
+  border-radius: 1px;
+}
+.timeline-track-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-dim));
+  transform-origin: top;
+  transform: scaleY(1); /* fully drawn by default (no-JS / reduced-motion) */
+}
+.timeline-js .timeline-track-fill { transform: scaleY(0); will-change: transform; }
+
+.timeline-entry { position: relative; margin-bottom: 44px; }
+.timeline-entry:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: -41px; /* centers 12px dot on the 2px track (padding-left 36px) */
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent-dim);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.timeline-entry.active .timeline-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.timeline-date {
+  position: absolute;
+  left: -186px; /* gutter: 150px margin + 36px padding */
+  top: 5px;
+  width: 130px;
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+  line-height: 1.4;
+}
+
+.timeline-company { display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px; }
+.timeline-company-name { font-size: 1rem; font-weight: 700; color: var(--text); font-family: var(--font-display); }
+.timeline-company-meta { font-size: 0.85rem; color: var(--accent); }
+
+/* entries inside the timeline drop their old list borders */
+.timeline .timeline-content > .resume-entry { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+/* inner promotion track gets breathing room from the main line */
+.timeline .career-group-body { margin-left: 24px; }
+
+/* gutter date replaces inline date on wide screens (individual entries only;
+   per-role dates inside the career group stay visible) */
+@media (min-width: 901px) {
+  .timeline-content > .resume-entry > .resume-entry-header > .resume-entry-date { display: none; }
+}
+
+/* scroll-reveal states (only when JS is active) */
+.timeline-js .timeline-entry {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.timeline-js .timeline-entry .timeline-dot { transform: scale(0); }
+.timeline-js .timeline-entry.visible { opacity: 1; transform: none; }
+.timeline-js .timeline-entry.visible .timeline-dot { transform: scale(1); }
+
+@media (max-width: 900px) {
+  .timeline { margin-left: 4px; padding-left: 26px; }
+  .timeline-date { display: none; }
+  .timeline-dot { left: -31px; } /* re-center for 26px padding */
+  .timeline .career-group-body { margin-left: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-js .timeline-entry,
+  .timeline-js .timeline-entry .timeline-dot {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .timeline-js .timeline-track-fill { transform: scaleY(1); }
+  .resume-section::details-content { transition: none; }
+  .resume-section-title::after { transition: none; }
+}
 
 /* ============================================================
    STAT CARDS (home page)
@@ -609,4 +703,17 @@ section { padding: 80px 0; }
   /* Interest grid: 2 cols */
   .interest-grid { grid-template-columns: repeat(2, 1fr); }
   .interest-card { padding: 18px 12px; }
+}
+
+/* ============================================================
+   PRINT — force all resume sections open, hide chrome
+   ============================================================ */
+@media print {
+  .resume-section::details-content {
+    height: auto;
+    content-visibility: visible;
+    display: block;
+  }
+  .resume-section-title { cursor: default; }
+  .resume-section-title::after { display: none; }
 }

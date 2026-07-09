@@ -56,8 +56,9 @@
         <main>
 
           <!-- Profile -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Profile</h2>
+          <details class="resume-section">
+            <summary class="resume-section-title">Profile</summary>
+            <div class="resume-section-body">
             <p>
               Robotics Software Engineer with 5+ years of experience building production robotic systems at scale.
               Specialized in low-latency 2D/3D object detection, multi-sensor fusion (camera, LiDAR, IMU), and
@@ -65,139 +66,182 @@
               ROS2/C++ perception pipelines and model quantization to MLOps for production edge deployment.
               M.Sc. in Robotic Systems Engineering, RWTH Aachen University.
             </p>
-          </div>
+            </div>
+          </details>
 
           <!-- Experience -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Experience</h2>
+          <details class="resume-section" id="experience-section">
+            <summary class="resume-section-title">Experience</summary>
+            <div class="resume-section-body">
 
-            <!-- Schmiede.one career progression block -->
-            <div class="career-group">
-              <div class="career-group-body">
+            <div class="timeline" id="experience-timeline">
+              <div class="timeline-track"><div class="timeline-track-fill"></div></div>
 
-                <div class="resume-entry">
-                  <div class="resume-entry-header">
-                    <span class="resume-entry-title">Robotics Software Engineer &mdash; Computer Vision</span>
-                    <span class="resume-entry-date">Dec 2024 &ndash; Present</span>
+              <!-- Schmiede.one promotion track (grouped company node) -->
+              <div class="timeline-entry">
+                <span class="timeline-date">Aug 2023 &ndash; Present</span>
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-content">
+                  <div class="timeline-company">
+                    <span class="timeline-company-name">Schmiede.one GmbH</span>
+                    <span class="timeline-company-meta">Innovation lab of the Grimme group &middot; D&uuml;sseldorf, Germany</span>
                   </div>
-                  <p class="resume-entry-org">Schmiede.one GmbH (Innovation lab of the Grimme group) &middot; D&uuml;sseldorf, Germany</p>
-                  <div class="resume-entry-desc">
-                    <ul>
-                      <li>Own QualiCam, a ROS2 and NVIDIA Jetson&ndash;based real-time optical perception system for agricultural harvest quality assurance, end-to-end from architecture through field deployment.</li>
-                      <li>Own the end-to-end MLOps pipeline (datasets, auto-annotation, training, evaluation), cutting manual effort by 85% and accelerating model release cycles.</li>
-                      <li>Improve the ROS2 object detection pipeline and custom vision algorithms for the Farmsort.one optical sorter, enabling low-latency classification and sorting of agricultural produce.</li>
-                      <li>Lead deployment and maintenance of production ML models in the field, resolving customer issues to ensure stable, efficient system performance.</li>
-                    </ul>
+                  <div class="career-group-body">
+
+                    <div class="resume-entry">
+                      <div class="resume-entry-header">
+                        <span class="resume-entry-title">Robotics Software Engineer &mdash; Computer Vision</span>
+                        <span class="resume-entry-date">Dec 2024 &ndash; Present</span>
+                      </div>
+                      <div class="resume-entry-desc">
+                        <ul>
+                          <li>Own QualiCam, a ROS2 and NVIDIA Jetson&ndash;based real-time optical perception system for agricultural harvest quality assurance, end-to-end from architecture through field deployment.</li>
+                          <li>Own the end-to-end MLOps pipeline (datasets, auto-annotation, training, evaluation), cutting manual effort by 85% and accelerating model release cycles.</li>
+                          <li>Improve the ROS2 object detection pipeline and custom vision algorithms for the Farmsort.one optical sorter, enabling low-latency classification and sorting of agricultural produce.</li>
+                          <li>Lead deployment and maintenance of production ML models in the field, resolving customer issues to ensure stable, efficient system performance.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="resume-entry">
+                      <div class="resume-entry-header">
+                        <span class="resume-entry-title">Working Student &mdash; Computer Vision &amp; Robotics</span>
+                        <span class="resume-entry-date">Mar 2024 &ndash; Nov 2024</span>
+                      </div>
+                      <div class="resume-entry-desc">
+                        <ul>
+                          <li>Developed and field-validated a standalone harvest quality assurance system (QualiCam) at customer farms to assess crop quality in real-world conditions.</li>
+                          <li>Developed quantization and deployment pipelines for YOLO-based object detection models using TensorRT on NVIDIA Jetson Orin NX platform.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="resume-entry">
+                      <div class="resume-entry-header">
+                        <span class="resume-entry-title">Intern &mdash; Computer Vision &amp; Robotics</span>
+                        <span class="resume-entry-date">Aug 2023 &ndash; Feb 2024</span>
+                      </div>
+                      <div class="resume-entry-desc">
+                        <ul>
+                          <li>Spearheaded development of a stereo vision&ndash;based 3D object detection pipeline for an autonomous harvester, enabling real-time collision avoidance. Showcased at Agritechnica 2023.</li>
+                          <li>Benchmarked and optimized state-of-the-art detection models on custom agricultural datasets, achieving 5&times; faster inference through ONNX and HailoRT quantization on Hailo8 edge processors.</li>
+                        </ul>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
+              </div>
 
-                <div class="resume-entry">
-                  <div class="resume-entry-header">
-                    <span class="resume-entry-title">Working Student &mdash; Computer Vision &amp; Robotics</span>
-                    <span class="resume-entry-date">Mar 2024 &ndash; Nov 2024</span>
-                  </div>
-                  <p class="resume-entry-org">Schmiede.one GmbH (Innovation lab of the Grimme group) &middot; D&uuml;sseldorf, Germany</p>
-                  <div class="resume-entry-desc">
-                    <ul>
-                      <li>Developed and field-validated a standalone harvest quality assurance system (QualiCam) at customer farms to assess crop quality in real-world conditions.</li>
-                      <li>Developed quantization and deployment pipelines for YOLO-based object detection models using TensorRT on NVIDIA Jetson Orin NX platform.</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="resume-entry">
-                  <div class="resume-entry-header">
-                    <span class="resume-entry-title">Intern &mdash; Computer Vision &amp; Robotics</span>
-                    <span class="resume-entry-date">Aug 2023 &ndash; Feb 2024</span>
-                  </div>
-                  <p class="resume-entry-org">Schmiede.one GmbH (Innovation lab of the Grimme group) &middot; D&uuml;sseldorf, Germany</p>
-                  <div class="resume-entry-desc">
-                    <ul>
-                      <li>Spearheaded development of a stereo vision&ndash;based 3D object detection pipeline for an autonomous harvester, enabling real-time collision avoidance. Showcased at Agritechnica 2023.</li>
-                      <li>Benchmarked and optimized state-of-the-art detection models on custom agricultural datasets, achieving 5&times; faster inference through ONNX and HailoRT quantization on Hailo8 edge processors.</li>
-                    </ul>
+              <!-- Master Thesis (concurrent with Schmiede.one) -->
+              <div class="timeline-entry">
+                <span class="timeline-date">May 2024 &ndash; Jul 2025</span>
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-content">
+                  <div class="resume-entry">
+                    <div class="resume-entry-header">
+                      <span class="resume-entry-title">Master Thesis Student &mdash; Autonomous Driving</span>
+                      <span class="resume-entry-date">May 2024 &ndash; Jul 2025</span>
+                    </div>
+                    <p class="resume-entry-org">Institut f&uuml;r Kraftfahrzeuge (ika), RWTH Aachen University &middot; Aachen, Germany</p>
+                    <div class="resume-entry-desc">
+                      <ul>
+                        <li>Developed an attention map&ndash;based explainability methodology for real-time, transformer-based 3D object detection, resulting in a peer-reviewed publication at IEEE ITSC 2026.</li>
+                        <li>Developed a ROS2-based pipeline to ingest LiDAR point clouds and display 3D object detection as well as saliency maps in real time.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-
               </div>
+
+              <div class="timeline-entry">
+                <span class="timeline-date">Mar 2023 &ndash; Aug 2023</span>
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-content">
+                  <div class="resume-entry">
+                    <div class="resume-entry-header">
+                      <span class="resume-entry-title">Graduate Student Research Assistant</span>
+                      <span class="resume-entry-date">Mar 2023 &ndash; Aug 2023</span>
+                    </div>
+                    <p class="resume-entry-org">RWTH Aachen University &middot; Aachen, Germany</p>
+                    <div class="resume-entry-desc">
+                      <ul>
+                        <li>Developed a perception pipeline for safe mobile robot operation in construction environments, focusing on stereo vision&ndash;based 3D object detection and LiDAR point cloud compression.</li>
+                        <li>Designed and deployed a closed-loop LiDAR tilt system to increase vertical field of view by 100% for close-range applications; ROS package written in C++ and deployed on NVIDIA Jetson Xavier.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-entry">
+                <span class="timeline-date">May 2020 &ndash; May 2021</span>
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-content">
+                  <div class="resume-entry">
+                    <div class="resume-entry-header">
+                      <span class="resume-entry-title">Software Developer &mdash; C++</span>
+                      <span class="resume-entry-date">May 2020 &ndash; May 2021</span>
+                    </div>
+                    <p class="resume-entry-org">Synedyne Systems &middot; Bangalore, India</p>
+                    <div class="resume-entry-desc">
+                      <ul>
+                        <li>Developed and implemented ML-based calibration algorithms on an edge device to estimate payload of a self-loading cement mixer truck.</li>
+                        <li>Achieved weight estimation accuracy of 98.5% with a maximum payload of 800 kg.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-entry">
+                <span class="timeline-date">Jul 2019 &ndash; Apr 2020</span>
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-content">
+                  <div class="resume-entry">
+                    <div class="resume-entry-header">
+                      <span class="resume-entry-title">Robotics Research Engineer</span>
+                      <span class="resume-entry-date">Jul 2019 &ndash; Apr 2020</span>
+                    </div>
+                    <p class="resume-entry-org">Indian Institute of Science &middot; Bangalore, India</p>
+                    <div class="resume-entry-desc">
+                      <ul>
+                        <li>Designed and developed control software (C/C++) and a robotic test bed for precise liquid dispensing for composite manufacturing at the Department of Aerospace Engineering.</li>
+                        <li>Achieved accuracy of &plusmn;10 microliters using a MEMS-based flow sensor.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-entry">
+                <span class="timeline-date">Jul 2018 &ndash; Jul 2019</span>
+                <span class="timeline-dot" aria-hidden="true"></span>
+                <div class="timeline-content">
+                  <div class="resume-entry">
+                    <div class="resume-entry-header">
+                      <span class="resume-entry-title">Robotics Systems Engineer</span>
+                      <span class="resume-entry-date">Jul 2018 &ndash; Jul 2019</span>
+                    </div>
+                    <p class="resume-entry-org">Agilebot Automation &middot; Bangalore, India</p>
+                    <div class="resume-entry-desc">
+                      <ul>
+                        <li>Worked on AS/RS robotic system design for automating processes in medium and large scale warehouses.</li>
+                        <li>Developed chassis and frame design for a pick-and-place autonomous rover module for medium scale warehouses.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-
-            <!-- Master Thesis (concurrent with Schmiede.one, shown separately) -->
-            <div class="resume-entry">
-              <div class="resume-entry-header">
-                <span class="resume-entry-title">Master Thesis Student &mdash; Autonomous Driving</span>
-                <span class="resume-entry-date">May 2024 &ndash; Jul 2025</span>
-              </div>
-              <p class="resume-entry-org">Institut f&uuml;r Kraftfahrzeuge (ika), RWTH Aachen University &middot; Aachen, Germany</p>
-              <div class="resume-entry-desc">
-                <ul>
-                  <li>Developed an attention map&ndash;based explainability methodology for real-time, transformer-based 3D object detection, resulting in a peer-reviewed publication at IEEE ITSC 2026.</li>
-                  <li>Developed a ROS2-based pipeline to ingest LiDAR point clouds and display 3D object detection as well as saliency maps in real time.</li>
-                </ul>
-              </div>
             </div>
-
-            <div class="resume-entry">
-              <div class="resume-entry-header">
-                <span class="resume-entry-title">Graduate Student Research Assistant</span>
-                <span class="resume-entry-date">Mar 2023 &ndash; Aug 2023</span>
-              </div>
-              <p class="resume-entry-org">RWTH Aachen University &middot; Aachen, Germany</p>
-              <div class="resume-entry-desc">
-                <ul>
-                  <li>Developed a perception pipeline for safe mobile robot operation in construction environments, focusing on stereo vision&ndash;based 3D object detection and LiDAR point cloud compression.</li>
-                  <li>Designed and deployed a closed-loop LiDAR tilt system to increase vertical field of view by 100% for close-range applications; ROS package written in C++ and deployed on NVIDIA Jetson Xavier.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resume-entry">
-              <div class="resume-entry-header">
-                <span class="resume-entry-title">Software Developer &mdash; C++</span>
-                <span class="resume-entry-date">May 2020 &ndash; May 2021</span>
-              </div>
-              <p class="resume-entry-org">Synedyne Systems &middot; Bangalore, India</p>
-              <div class="resume-entry-desc">
-                <ul>
-                  <li>Developed and implemented ML-based calibration algorithms on an edge device to estimate payload of a self-loading cement mixer truck.</li>
-                  <li>Achieved weight estimation accuracy of 98.5% with a maximum payload of 800 kg.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resume-entry">
-              <div class="resume-entry-header">
-                <span class="resume-entry-title">Robotics Research Engineer</span>
-                <span class="resume-entry-date">Jul 2019 &ndash; Apr 2020</span>
-              </div>
-              <p class="resume-entry-org">Indian Institute of Science &middot; Bangalore, India</p>
-              <div class="resume-entry-desc">
-                <ul>
-                  <li>Designed and developed control software (C/C++) and a robotic test bed for precise liquid dispensing for composite manufacturing at the Department of Aerospace Engineering.</li>
-                  <li>Achieved accuracy of &plusmn;10 microliters using a MEMS-based flow sensor.</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="resume-entry">
-              <div class="resume-entry-header">
-                <span class="resume-entry-title">Robotics Systems Engineer</span>
-                <span class="resume-entry-date">Jul 2018 &ndash; Jul 2019</span>
-              </div>
-              <p class="resume-entry-org">Agilebot Automation &middot; Bangalore, India</p>
-              <div class="resume-entry-desc">
-                <ul>
-                  <li>Worked on AS/RS robotic system design for automating processes in medium and large scale warehouses.</li>
-                  <li>Developed chassis and frame design for a pick-and-place autonomous rover module for medium scale warehouses.</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
+          </details>
 
           <!-- Education -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Education</h2>
+          <details class="resume-section">
+            <summary class="resume-section-title">Education</summary>
+            <div class="resume-section-body">
 
             <div class="resume-entry">
               <div class="resume-entry-header">
@@ -227,27 +271,27 @@
                 </ul>
               </div>
             </div>
-          </div>
+            </div>
+          </details>
 
           <!-- Research Publications -->
-          <div class="resume-section">
-            <h2 class="resume-section-title">Research Publications</h2>
+          <details class="resume-section">
+            <summary class="resume-section-title">Research Publications</summary>
+            <div class="resume-section-body">
             <p style="line-height:1.75">
               [1] T. Beemelmanns, S. Sharifi, M. Mehrotra, <strong>A. Choudhuri</strong>, L. Eckstein.
               <em>Towards Trustworthy and Explainable AI for Perception Models: From Concept to Prototype Vehicle Deployment.</em>
               IEEE International Conference on Intelligent Transportation Systems (ITSC), 2026.
               <a href="https://arxiv.org/abs/2605.16087" target="_blank" rel="noopener">arXiv:2605.16087</a>
             </p>
-          </div>
+            </div>
+          </details>
 
-        </main>
-
-      </div>
-
-      <!-- Technical Stack -->
-      <div class="resume-tech-section">
-        <h2 class="resume-tech-title">Technical Stack</h2>
-        <div class="resume-tech-grid">
+          <!-- Technical Stack -->
+          <details class="resume-section">
+            <summary class="resume-section-title">Technical Stack</summary>
+            <div class="resume-section-body">
+              <div class="resume-tech-grid">
           <div>
             <p class="skills-col-title">Programming</p>
             <div class="skill-list">
@@ -300,7 +344,12 @@
               <div class="skill-item"><span class="skill-dot"></span>German (B1)</div>
             </div>
           </div>
-        </div>
+              </div>
+            </div>
+          </details>
+
+        </main>
+
       </div>
 
     </div>
@@ -309,5 +358,6 @@
 
   <div id="footer-placeholder"></div>
   <script src="/js/components.js"></script>
+  <script src="/js/resume-timeline.js"></script>
 </body>
 </html>
