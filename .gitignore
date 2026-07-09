@@ -1,0 +1,9 @@
+# Claude Code / AI assistant artifacts — never commit or push
+CLAUDE.md
+.claude/
+.superpowers/
+.graphify/
+graphify-out/
+
+# Planning / design docs — kept local, not published
+docs/
