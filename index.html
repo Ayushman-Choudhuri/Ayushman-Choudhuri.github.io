@@ -7,30 +7,29 @@
   <title>Ayushman Choudhuri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div id="nav-placeholder"></div>
 
   <!-- ============================================================
-       HERO
+       HERO — interactive 3D Spline robot
        ============================================================ -->
   <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="hero-eyebrow fade-in fade-in-1">Robotics Engineer &amp; AI Researcher</p>
-        <h1 class="fade-in fade-in-2">Hi, I'm <span>Ayushman</span></h1>
-        <p class="hero-subtitle fade-in fade-in-3">
-          I help robots understand the world.
-        </p>
-        <div class="hero-ctas fade-in fade-in-4">
+    <spline-viewer
+      class="hero-spline-viewer"
+      aria-hidden="true"
+      url="https://prod.spline.design/PyzDhpQ9E5f1E3MT/scene.splinecode"></spline-viewer>
+    <div class="hero-spline-overlay">
+      <div class="hero-flank hero-flank-left">
+        <h1 class="fade-in fade-in-1">Hi, I'm <span>Ayushman</span></h1>
+      </div>
+      <div class="hero-flank hero-flank-right">
+        <div class="hero-ctas fade-in fade-in-2">
           <a href="/about.html" class="btn btn-primary">About Me</a>
           <a href="/projects.html" class="btn btn-secondary">View Projects</a>
         </div>
-      </div>
-      <div class="hero-image fade-in fade-in-5">
-        <img src="/assets/images/profile.png" alt="Ayushman Choudhuri">
       </div>
     </div>
     <div class="hero-scroll">
@@ -61,6 +60,7 @@
   <div id="footer-placeholder"></div>
 
   <script src="/js/components.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
   <script src="/data/projects.js"></script>
   <script>
     var featured = window.PROJECTS.recent.slice(0, 3);
