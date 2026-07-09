@@ -6,6 +6,7 @@
   if (!timeline) return;
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
 
   timeline.classList.add('timeline-js');
 
