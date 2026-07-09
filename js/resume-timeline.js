@@ -57,5 +57,34 @@
 
   window.addEventListener('scroll', onScrollOrResize, { passive: true });
   window.addEventListener('resize', onScrollOrResize, { passive: true });
+
+  // Timeline lives inside a <details>; geometry is wrong until it opens.
+  const experienceSection = document.getElementById('experience-section');
+  if (experienceSection) {
+    experienceSection.addEventListener('toggle', () => {
+      update();
+      // Re-run after the open transition settles (0.3s in CSS).
+      setTimeout(onScrollOrResize, 350);
+    });
+  }
+
   update();
+})();
+
+// Printing: closed <details> content doesn't print reliably; open all
+// resume sections before print and restore their prior state after.
+(function () {
+  const sections = document.querySelectorAll('details.resume-section');
+  if (!sections.length) return;
+
+  let previouslyOpen = null;
+  window.addEventListener('beforeprint', () => {
+    previouslyOpen = Array.from(sections, (d) => d.open);
+    sections.forEach((d) => { d.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    if (!previouslyOpen) return;
+    sections.forEach((d, i) => { d.open = previouslyOpen[i]; });
+    previouslyOpen = null;
+  });
 })();
