@@ -47,11 +47,13 @@
         '</div>';
     } else {
       grid.innerHTML = posts.map(function (p) {
-        return '<a href="' + p.href + '" class="blog-card">' +
+        var ext = p.external ? ' target="_blank" rel="noopener"' : '';
+        return '<a href="' + p.href + '" class="blog-card"' + ext + '>' +
           '<div class="blog-card-meta">' +
             '<span>' + p.date + '</span>' +
             '<span>&middot;</span>' +
             '<span>' + p.readTime + '</span>' +
+            (p.external ? '<span class="blog-card-ext">Medium &#8599;</span>' : '') +
           '</div>' +
           '<h3>' + p.title + '</h3>' +
           '<p>' + p.excerpt + '</p>' +

@@ -357,6 +357,7 @@ section { padding: 80px 0; }
 }
 .blog-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 30px var(--accent-glow); }
 .blog-card-meta { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-subtle); }
+.blog-card-ext { margin-left: auto; font-weight: 600; color: var(--accent); }
 .blog-card h3 { font-size: 1.05rem; color: var(--text); line-height: 1.4; }
 .blog-card > p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
 .blog-empty { grid-column: 1 / -1; text-align: center; padding: 80px 0; }
